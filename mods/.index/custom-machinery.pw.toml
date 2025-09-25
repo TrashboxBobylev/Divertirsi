@@ -1,0 +1,16 @@
+filename = 'CustomMachinery-neoforge-1.21.1-0.10.45.jar'
+name = 'Custom Machinery'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = 'd3dcbd1abeada8921338814220fe7fe18ba02437'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7009422
+project-id = 457017
