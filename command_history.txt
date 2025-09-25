@@ -1,0 +1,5 @@
+/time set day
+/gamerule doDaylightCycle false
+/attribute @p minecraft:player.block_interaction_range base set 16
+/gamemode survival
+/gamemode creative

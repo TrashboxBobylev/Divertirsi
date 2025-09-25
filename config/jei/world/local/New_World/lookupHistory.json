@@ -1,5 +1,10 @@
 [
   {"version":1},
+  {"ingredient":{"id":"chiselsandbits:pattern_single_use"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:lodestone"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chipped:tiny_brick_bordered_lodestone"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chisel_chipped_integration:metal_aluminum_caution"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chipped:large_diamond_white_stained_glass_pane"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"chipped:alchemy_bench"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"chipped:alchemy_book"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"chisel_chipped_integration:unobtainable_old_command_block"},"type":"item_stack","bookmarkType":"INGREDIENT"},
