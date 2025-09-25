@@ -1,4 +1,5 @@
 /mods/*.jar
 /saves/
 options.txt
-/logs/
+/logs/*.log
+/logs/*.log.*
