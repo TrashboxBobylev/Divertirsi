@@ -72,5 +72,11 @@
     "registry_name": "OFF",
     "block_properties": false,
     "mod_name": true
+  },
+  "astages": {
+    "block_component_provider": true
+  },
+  "custommachinery": {
+    "machine_component_provider": true
   }
 }
