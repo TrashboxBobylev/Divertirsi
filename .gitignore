@@ -1,5 +1,10 @@
 /mods/*.jar
 /saves/
 options.txt
-/logs/*.log
-/logs/*.log.*
+/logs
+/xaero
+/local
+usercache.json
+usernamecache.json
+logs/debug.log
+logs/latest.log
