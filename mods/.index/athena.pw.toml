@@ -1,16 +1,16 @@
-filename = 'supermartijn642corelib-1.1.18a-neoforge-mc1.21.jar'
-name = "SuperMartijn642's Core Lib"
+filename = 'athena-neoforge-1.21-4.0.2.jar'
+name = 'Athena'
 side = 'both'
 x-prismlauncher-loaders = [ 'neoforge' ]
 x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
 x-prismlauncher-release-type = 'release'
 
 [download]
-hash = '21c75db63ca1d8b8972a94a71c9c7ec0549e1be0'
+hash = '069f397f1b3a30b3d5f5a98cac76304dfe345d76'
 hash-format = 'sha1'
 mode = 'metadata:curseforge'
 url = ''
 
 [update.curseforge]
-file-id = 6076757
-project-id = 454372
+file-id = 6669522
+project-id = 841890

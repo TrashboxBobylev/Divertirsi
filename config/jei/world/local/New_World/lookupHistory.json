@@ -1,0 +1,8 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"chipped:alchemy_bench"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chipped:alchemy_book"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chisel_chipped_integration:unobtainable_old_command_block"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chisel_chipped_integration:unobtainable_faux_bedrock"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"chisel_chipped_integration:unobtainable_structure_block"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

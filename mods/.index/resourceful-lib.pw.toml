@@ -1,16 +1,16 @@
-filename = 'fusion-1.2.11a-neoforge-mc1.21.jar'
-name = 'Fusion (Connected Textures)'
+filename = 'resourcefullib-neoforge-1.21-3.0.12.jar'
+name = 'Resourceful Lib'
 side = 'both'
 x-prismlauncher-loaders = [ 'neoforge' ]
 x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
 x-prismlauncher-release-type = 'release'
 
 [download]
-hash = 'cde5a10e0cd7eb0930910b0014ed01bbf76c28bd'
+hash = '24389c8e48ff0e8594e4686b750c494c66a5f8df'
 hash-format = 'sha1'
 mode = 'metadata:curseforge'
 url = ''
 
 [update.curseforge]
-file-id = 6923714
-project-id = 854949
+file-id = 5973188
+project-id = 570073
