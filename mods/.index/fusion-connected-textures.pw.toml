@@ -1,0 +1,16 @@
+filename = 'fusion-1.2.11a-neoforge-mc1.21.jar'
+name = 'Fusion (Connected Textures)'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'cde5a10e0cd7eb0930910b0014ed01bbf76c28bd'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6923714
+project-id = 854949
