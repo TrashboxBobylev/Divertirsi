@@ -8,3 +8,4 @@ usercache.json
 usernamecache.json
 logs/debug.log
 logs/latest.log
+/XaeroWaypoints_*
