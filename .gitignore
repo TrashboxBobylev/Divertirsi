@@ -10,4 +10,8 @@ logs/debug.log
 logs/latest.log
 /XaeroWaypoints_*
 /screenshots
-/command_history.txt
+command_history.txt
+config/jei/world/local/
+config/packetfixer.properties
+config/xaerominimap_entities.json
+config/jei/ingredient-list-mod-sort-order.ini
