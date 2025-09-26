@@ -1,0 +1,16 @@
+filename = 'tipsmod-neoforge-1.21.1-21.1.2.jar'
+name = 'Tips'
+side = 'client'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '863234dd637a478c5c6d03ba3421539a7fed76ae'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5844057
+project-id = 306549

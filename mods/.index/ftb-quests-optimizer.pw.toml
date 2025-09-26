@@ -1,0 +1,16 @@
+filename = 'FTBQuestsOptimizer-neoforge-3.1.0-1.21.1.jar'
+name = 'FTB Quests Optimizer'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'c3a4c14f67b38e8dac01aa44b7b8e4fd8020c737'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6897657
+project-id = 912469

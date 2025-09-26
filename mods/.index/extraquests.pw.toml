@@ -1,0 +1,16 @@
+filename = 'ExtraQuests-1.5.7-1.21.1-NeoForge.jar'
+name = 'ExtraQuests (for FTB Quests)'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'f893f878cb4feb64fe7c8f1c8f61b0c7b089fe5a'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6999274
+project-id = 964194

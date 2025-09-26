@@ -1,0 +1,16 @@
+filename = 'betterdays-1.21.1-3.3.4.4-NEOFORGE.jar'
+name = 'Better Days'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'fd8c9ccecc37c016622a79918f330209873e0283'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7015564
+project-id = 895618
