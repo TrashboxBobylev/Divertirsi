@@ -1,0 +1,16 @@
+filename = 'better_tooltips-1.0.3.jar'
+name = 'Better Tooltips'
+side = 'client'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'ac67bc12905121dc52d6403edd2c4cc8d39a6b67'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6372309
+project-id = 1099922

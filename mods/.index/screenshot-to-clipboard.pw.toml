@@ -1,0 +1,16 @@
+filename = 'screenshot-to-clipboard-neoforge-1.0.10.jar'
+name = 'Screenshot to Clipboard (Forge)'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.20.6', '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '0ead4d47c48afc4525efd9bf7c949eb7d1e15f0e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5593116
+project-id = 326950
