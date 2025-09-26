@@ -15,3 +15,5 @@ config/jei/world/local/
 config/packetfixer.properties
 config/xaerominimap_entities.json
 config/jei/ingredient-list-mod-sort-order.ini
+fancymenu_data/last_world.fmdata
+config/litematica/litematica_*
