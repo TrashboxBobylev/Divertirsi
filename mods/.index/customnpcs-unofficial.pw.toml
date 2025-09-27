@@ -1,0 +1,16 @@
+filename = 'CustomNPCs-Unofficial-NeoForge-1.21.1.20250917.jar'
+name = 'CustomNPCs-Unofficial'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'e07068042fe9dc2e7240fcb765bc5facba057394'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7005944
+project-id = 1052708
