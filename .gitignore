@@ -18,3 +18,8 @@ config/jei/ingredient-list-mod-sort-order.ini
 fancymenu_data/last_world.fmdata
 config/litematica/litematica_*
 ftbbackups3/
+.probe
+spark-modernfix/tmp
+.vscode/
+kubejs/config/probe-settings.json
+kubejs/*/jsconfig.json
