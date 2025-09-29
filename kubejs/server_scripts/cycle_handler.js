@@ -7,6 +7,8 @@ function max_cycle_duration(){
 
 const $TeamManager = Java.loadClass("dev.ftb.mods.ftbteams.api.TeamManager");
 const $TeamAPI = Java.loadClass("dev.ftb.mods.ftbteams.api.FTBTeamsAPI");
+const $MinecraftServer = Java.loadClass("net.minecraft.server.MinecraftServer");
+const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
 
 PlayerEvents.tick(event => {
     let cycle_bar = event.player.name.getString().toLowerCase() + "_cycle";
@@ -43,6 +45,16 @@ PlayerEvents.tick(event => {
                     }
                 }
             }
+            let base_pos = NBT.toTag({x: Math.round(event.player.x), y: Math.round(event.player.y), z: Math.round(event.player.z)});
+            let base_array;
+            if (!event.player.persistentData.contains("past_base_coords")){
+                base_array = [];
+                base_array.push(base_pos);
+            } else {
+                base_array = event.player.persistentData.getList("past_base_coords").toArray();
+                base_array.add(base_pos);
+            }
+            event.player.persistentData.put("past_base_coords", NBT.listTag(base_array));
             event.server.scheduleInTicks(20, _ => {
                 let result_x, result_y, result_z;
                 if (event.player.persistentData.get("base_pos") == null){
