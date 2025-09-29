@@ -1,0 +1,24 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "control_panel"
+	group: ""
+	id: "219F17740E4EA2B8"
+	order_index: 0
+	quest_links: [ ]
+	quests: [{
+		disable_recipe_mod: true
+		disable_toast: true
+		icon: {
+			id: "minecraft:iron_trapdoor"
+		}
+		id: "4A779A20378515FF"
+		size: 2.0d
+		tasks: [{
+			id: "1C0D827AE8727081"
+			type: "checkmark"
+		}]
+		x: 0.0d
+		y: -1.5d
+	}]
+}

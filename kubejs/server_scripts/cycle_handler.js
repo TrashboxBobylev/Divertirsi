@@ -2,13 +2,18 @@
     @returns {integer} Amount of seconds each cycle lasts
 */
 function max_cycle_duration(){
-    return 8;
+    return 20;
+}
+
+function new_base_deny_radius(){
+    return 2000;
 }
 
 const $TeamManager = Java.loadClass("dev.ftb.mods.ftbteams.api.TeamManager");
 const $TeamAPI = Java.loadClass("dev.ftb.mods.ftbteams.api.FTBTeamsAPI");
 const $MinecraftServer = Java.loadClass("net.minecraft.server.MinecraftServer");
 const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
+const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
 
 PlayerEvents.tick(event => {
     let cycle_bar = event.player.name.getString().toLowerCase() + "_cycle";
@@ -46,14 +51,14 @@ PlayerEvents.tick(event => {
                 }
             }
             let base_pos = NBT.toTag({x: Math.round(event.player.x), y: Math.round(event.player.y), z: Math.round(event.player.z)});
-            let base_array;
-            if (!event.player.persistentData.contains("past_base_coords")){
-                base_array = [];
-                base_array.push(base_pos);
-            } else {
-                base_array = event.player.persistentData.getList("past_base_coords").toArray();
-                base_array.add(base_pos);
+            let base_array = [];
+            if (event.player.persistentData.contains("past_base_coords")){
+                let _base_array = event.player.persistentData.getList("past_base_coords", $Tag.TAG_COMPOUND).toArray();
+                for (let base of _base_array){
+                    base_array.push(base);
+                }
             }
+            base_array.push(base_pos);
             event.player.persistentData.put("past_base_coords", NBT.listTag(base_array));
             event.server.scheduleInTicks(20, _ => {
                 let result_x, result_y, result_z;
@@ -76,7 +81,8 @@ PlayerEvents.tick(event => {
                 }
                 
                 event.player['teleportTo(net.minecraft.server.level.ServerLevel,double,double,double,float,float)'](event.server.getLevel("minecraft:the_end"), result_x, result_y, result_z, 0, 0);
-                event.server.scheduleInTicks(20, _ => {
+                event.server.runCommandSilent(`execute as ${event.player.name.getString()} run effect give @s jump_boost 3 255 true`);
+                event.server.scheduleInTicks(event.player.persistentData.getBoolean("built_spaceship") ? 2 : 20, _ => {
                     let pos = event.player.persistentData.getIntArray("base_pos");
                     result_x = pos[0]; result_y = pos[1]; result_z = pos[2];
                     if (!event.player.persistentData.getBoolean("built_spaceship")){
@@ -84,9 +90,128 @@ PlayerEvents.tick(event => {
                         event.player.persistentData.putBoolean("built_spaceship", true);
                     }
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
-                    event.server.runCommandSilent(`execute as ${event.player.name.getString()} run effect give @s jump_boost 1 255 true`);
                 });
             });
         }
     }
+});
+
+/**
+ * @param {$ServerPlayer_} player
+ * @param {integer} amount 
+ * @param {function($ServerPlayer_, integer)} process_callback
+ * @param {function($ServerPlayer_)} succeed_callback 
+ */
+function countDown(player, amount, process_callback, succeed_callback){
+    if (amount > 0){
+        process_callback(player, amount);
+        player.server.scheduleInTicks(20, _ => {
+            countDown(player, amount-1, process_callback, succeed_callback);
+        })
+    } else {
+        succeed_callback(player);
+    }
+}
+
+const rngBounds = {
+    minX: -100000,
+    maxX: 100000,
+    minZ: -100000,
+    maxZ: 100000
+};
+
+/**
+ * Randomly picks a point in 3D space that doesn't touch existing points
+ * @param {Array} existingPoints - Array of existing 3D points as [x, z] arrays
+ * @param {number} radius - Radius of the exclusion sphere around each point
+ * @returns {Array|null} A valid [x, z] point or null if no valid point found
+ */
+function findRandomPointAwayFromPoints(existingPoints, radius) {
+
+    const maxAttempts = 1000;
+
+    const { minX, maxX, minZ, maxZ } = rngBounds;
+    
+    // Helper function to calculate squared distance between two points
+    function squaredDistance(point1, point2) {
+        const dx = point1.x - point2.x;
+        const dz = point1.z - point2.z;
+        return dx * dx + dz * dz;
+    }
+
+    let centerX = 0, centerZ = 0;
+    for (const point of existingPoints){
+        centerX += point.x;
+        centerZ += point.z;
+    }
+    centerX /= existingPoints.length;
+    centerZ /= existingPoints.length;
+    
+    // Helper function to check if a point is valid (doesn't touch any existing points)
+    function isValidPoint(point) {
+        const minDistanceSquared = radius * radius;
+        const maxDistanceSquared = minDistanceSquared*5
+        
+        for (const existingPoint of existingPoints) {
+            if (squaredDistance(point, existingPoint) <= minDistanceSquared) {
+                return false;
+            }
+            if (squaredDistance(point, {x: centerX, z: centerZ}) > maxDistanceSquared){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // Try to find a valid point
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        // Generate random point within bounds
+        let randomPoint = {
+            x: minX + Math.random() * (maxX - minX),
+            z: minZ + Math.random() * (maxZ - minZ)
+        };
+        
+        // Check if this point is valid
+        if (isValidPoint(randomPoint)) {
+            return randomPoint;
+        }
+    }
+    
+    // If no valid point found after max attempts
+    console.warn(`No valid point found after ${maxAttempts} attempts. Consider increasing bounds or decreasing radius.`);
+    return null;
+}
+
+FTBQuestsEvents.completed("4A779A20378515FF", event => {
+    countDown(event.player, 10, (player, amount) => {
+        player.server.runCommandSilent(`title ${player.name.getString()} clear`);
+        player.server.runCommandSilent(`title ${player.name.getString()} title {"text": "Leaving in ${amount}."}`);
+    }, player => {
+        player.server.runCommandSilent(`title ${player.name.getString()} clear`);
+        let pointFound = false;
+        let _base_array = player.persistentData.getList("past_base_coords", $Tag.TAG_COMPOUND).toArray();
+        let base_array = []
+        for (let point of _base_array){
+            base_array.push({x: point.getInt("x"), z: point.getInt("z")});
+        }
+        let world = player.server.getLevel("minecraft:overworld");
+        let respawn_point = {};
+        let cycle_bar = player.name.getString().toLowerCase() + "_cycle";
+        do {
+            let point = findRandomPointAwayFromPoints(base_array, new_base_deny_radius());
+            if (point == null){
+                continue;
+            }
+            pointFound = true;
+            respawn_point = new BlockPos(point.x, 256, point.z);
+        } while (!pointFound);
+        player['teleportTo(net.minecraft.server.level.ServerLevel,double,double,double,float,float)'](world, respawn_point.x, respawn_point.y, respawn_point.z, 0, 0);
+        player.server.runCommandSilent(`execute as ${player.name.getString()} run effect give @s resistance 5 255 true`);
+        player.server.scheduleInTicks(10, _ => {
+            player.server.runCommandSilent(`execute in minecraft:overworld run spawnpoint ${player.username} ${Math.round(respawn_point.x)} ${Math.round(player.y)} ${Math.round(respawn_point.z)}`);
+            player.stages.remove("cycle_stops");
+            player.persistentData.putInt("cycle_time", 0);
+            BossBarUtils.setVisible(cycle_bar, true);
+        });
+    });
 });
