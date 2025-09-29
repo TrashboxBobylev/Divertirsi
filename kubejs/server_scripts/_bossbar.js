@@ -4,10 +4,14 @@
 const $UUID = Java.loadClass("java.util.UUID");
 const $ResourceLocation = Java.loadClass('net.minecraft.resources.ResourceLocation')
 
-var _bossbarmanager;
+var _bossbarmanager = null;
 
 ServerEvents.loaded(event => {
     _bossbarmanager = event.server.getCustomBossEvents();
+});
+ServerEvents.tick(event => {
+    if (_bossbarmanager == null)
+        _bossbarmanager = event.server.getCustomBossEvents();
 });
 
 const BossBarUtils = {
