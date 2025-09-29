@@ -7,17 +7,46 @@
 	order_index: 0
 	quest_links: [ ]
 	quests: [{
+		can_repeat: true
 		disable_recipe_mod: true
 		disable_toast: true
 		icon: {
 			id: "minecraft:iron_trapdoor"
 		}
 		id: "4A779A20378515FF"
-		size: 2.0d
-		tasks: [{
-			id: "1C0D827AE8727081"
-			type: "checkmark"
+		invisible: true
+		invisible_until_tasks: 1
+		rewards: [{
+			auto: "enabled"
+			command: "/execute store result score @p random_number run random value 1..10"
+			console: true
+			exclude_from_claim_all: true
+			feedback_message: "b"
+			icon: {
+				id: "minecraft:birch_button"
+			}
+			id: "7FA58CE93B3FDADB"
+			permission_level: 1
+			silent: true
+			team_reward: false
+			type: "command"
 		}]
+		size: 2.0d
+		tasks: [
+			{
+				disable_toast: true
+				icon: {
+					id: "chisel_chipped_integration:futura_cyan_screen"
+				}
+				id: "62C3021EEE488511"
+				stage: "spaceship"
+				type: "gamestage"
+			}
+			{
+				id: "1C0D827AE8727081"
+				type: "checkmark"
+			}
+		]
 		x: 0.0d
 		y: -1.5d
 	}]

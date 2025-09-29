@@ -90,6 +90,7 @@ PlayerEvents.tick(event => {
                         event.player.persistentData.putBoolean("built_spaceship", true);
                     }
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
+                    event.player.stages.add("spaceship");
                 });
             });
         }
@@ -183,6 +184,7 @@ function findRandomPointAwayFromPoints(existingPoints, radius) {
 }
 
 FTBQuestsEvents.completed("4A779A20378515FF", event => {
+    event.player.stages.remove("spaceship");
     countDown(event.player, 10, (player, amount) => {
         player.server.runCommandSilent(`title ${player.name.getString()} clear`);
         player.server.runCommandSilent(`title ${player.name.getString()} title {"text": "Leaving in ${amount}."}`);

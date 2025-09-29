@@ -1,5 +1,12 @@
 {
 	chapter.219F17740E4EA2B8.title: "Control Panel"
-	quest.4A779A20378515FF.quest_desc: ["Pressing this button will deploy you from the spaceship back into overworld, restarting the cycle."]
+	quest.4A779A20378515FF.quest_desc: [
+		"Pressing this button will deploy you from the spaceship back into overworld, restarting the cycle."
+		""
+		"Do &l&onot&r press it twice in a row!"
+	]
+	quest.4A779A20378515FF.title: "Eject Button"
+	reward.7FA58CE93B3FDADB.title: "b"
 	task.1C0D827AE8727081.title: "Let me out!"
+	task.62C3021EEE488511.title: "Have to be on spaceship"
 }
