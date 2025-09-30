@@ -1,0 +1,16 @@
+filename = 'lithium-neoforge-0.15.0+mc1.21.1.jar'
+name = 'Lithium (Fabric/NeoForge)'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '584c5a8186938dd58e43ecde316253e8e38f6650'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6290413
+project-id = 360438

@@ -97,6 +97,9 @@
   "astages": {
     "block_component_provider": true
   },
+  "balm": {
+    "jade": true
+  },
   "custommachinery": {
     "machine_component_provider": true
   }

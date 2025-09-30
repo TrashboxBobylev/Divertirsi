@@ -1,0 +1,16 @@
+filename = 'Neat-1.21-40-NEOFORGE.jar'
+name = 'Neat'
+side = 'client'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '3a3fb316ee334281ceb993d56a6c27c0713ee273'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5838045
+project-id = 238372
