@@ -14,6 +14,7 @@ const $TeamAPI = Java.loadClass("dev.ftb.mods.ftbteams.api.FTBTeamsAPI");
 const $MinecraftServer = Java.loadClass("net.minecraft.server.MinecraftServer");
 const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
 const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
+const $ObjectiveCriteria = Java.loadClass("net.minecraft.world.scores.criteria.ObjectiveCriteria");
 
 PlayerEvents.tick(event => {
     let cycle_bar = event.player.name.getString().toLowerCase() + "_cycle";
@@ -29,6 +30,7 @@ PlayerEvents.tick(event => {
             BossBarUtils.setValue(cycle_bar, max_cycle_duration());
             BossBarUtils.addPlayer(cycle_bar, event.player);
             event.player.persistentData.putInt("cycle_time", 0);
+            event.player.scoreboard.addObjective("cycle", $ObjectiveCriteria.DUMMY, Component.white("Cycles survived"), 'integer', true, null);
         // continue the cycle
         }
     }
@@ -92,6 +94,9 @@ PlayerEvents.tick(event => {
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
                     event.player.stages.add("spaceship");
                 });
+                let score = event.player.scoreboard.getOrCreatePlayerScore(event.player, event.player.scoreboard.getObjective("cycle"));
+                score.increment();
+                event.player.scoreboard.setDisplayObjective("sidebar", event.player.scoreboard.getObjective("cycle"));
             });
         }
     }
