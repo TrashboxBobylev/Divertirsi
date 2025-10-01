@@ -82,7 +82,8 @@ PlayerEvents.tick(event => {
                     result_x = pos[0]; result_y = pos[1]; result_z = pos[2];
                 }
                 
-                event.player['teleportTo(net.minecraft.server.level.ServerLevel,double,double,double,float,float)'](event.server.getLevel("minecraft:the_end"), result_x, result_y, result_z, 0, 0);
+                let spaceship_world = event.server.getLevel("minecraft:the_end");
+                event.player['teleportTo(net.minecraft.server.level.ServerLevel,double,double,double,float,float)'](spaceship_world, result_x, result_y, result_z, 0, 0);
                 event.server.runCommandSilent(`execute as ${event.player.name.getString()} run effect give @s jump_boost 3 255 true`);
                 event.server.scheduleInTicks(event.player.persistentData.getBoolean("built_spaceship") ? 2 : 20, _ => {
                     let pos = event.player.persistentData.getIntArray("base_pos");
@@ -92,6 +93,8 @@ PlayerEvents.tick(event => {
                         event.player.persistentData.putBoolean("built_spaceship", true);
                     }
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
+                    let start_chest = spaceship_world.getBlockEntity(new BlockPos(result_x+11, result_y+1, result_z+10));
+                    start_chest.performRefresh();
                     event.player.stages.add("spaceship");
                 });
                 let score = event.player.scoreboard.getOrCreatePlayerScore(event.player, event.player.scoreboard.getObjective("cycle"));
