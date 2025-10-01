@@ -95,6 +95,7 @@ PlayerEvents.tick(event => {
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
                     let start_chest = spaceship_world.getBlockEntity(new BlockPos(result_x+11, result_y+1, result_z+10));
                     start_chest.performRefresh();
+                    event.player.setGameMode("adventure");
                     event.player.stages.add("spaceship");
                 });
                 let score = event.player.scoreboard.getOrCreatePlayerScore(event.player, event.player.scoreboard.getObjective("cycle"));
@@ -222,6 +223,7 @@ FTBQuestsEvents.completed("4A779A20378515FF", event => {
             player.stages.remove("cycle_stops");
             player.persistentData.putInt("cycle_time", 0);
             BossBarUtils.setVisible(cycle_bar, true);
+            player.setGameMode("survival");
         });
     });
 });
