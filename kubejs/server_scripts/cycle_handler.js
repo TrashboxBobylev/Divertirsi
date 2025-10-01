@@ -123,13 +123,6 @@ function countDown(player, amount, process_callback, succeed_callback){
     }
 }
 
-const rngBounds = {
-    minX: -100000,
-    maxX: 100000,
-    minZ: -100000,
-    maxZ: 100000
-};
-
 /**
  * Randomly picks a point in 3D space that doesn't touch existing points
  * @param {Array} existingPoints - Array of existing 3D points as [x, z] arrays
@@ -139,6 +132,13 @@ const rngBounds = {
 function findRandomPointAwayFromPoints(existingPoints, radius) {
 
     const maxAttempts = 1000;
+
+    const rngBounds = {
+        minX: -radius*6,
+        maxX: radius*6,
+        minZ: -radius*6,
+        maxZ: radius*6
+    };
 
     const { minX, maxX, minZ, maxZ } = rngBounds;
     
