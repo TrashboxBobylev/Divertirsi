@@ -31,6 +31,7 @@ PlayerEvents.tick(event => {
             BossBarUtils.addPlayer(cycle_bar, event.player);
             event.player.persistentData.putInt("cycle_time", 0);
             event.player.scoreboard.addObjective("cycle", $ObjectiveCriteria.DUMMY, Component.white("Cycles survived"), 'integer', true, null);
+            event.player.give("kubejs:drill_wooden");
         // continue the cycle
         }
     }
