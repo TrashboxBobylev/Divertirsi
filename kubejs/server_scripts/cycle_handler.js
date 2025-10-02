@@ -2,7 +2,7 @@
     @returns {integer} Amount of seconds each cycle lasts
 */
 function max_cycle_duration(){
-    return 20;
+    return 200;
 }
 
 function new_base_deny_radius(){
