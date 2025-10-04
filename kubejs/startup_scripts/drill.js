@@ -29,5 +29,5 @@ function defineDrill(event, miningSpeed, tier, name){
 }
 
 StartupEvents.registry("item", event => {
-    defineDrill(event, 2, 1, "wooden");
+    defineDrill(event, 1.5, 1, "wooden");
 });
