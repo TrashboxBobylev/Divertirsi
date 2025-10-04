@@ -1,0 +1,16 @@
+filename = 'keeponmining-1.0.0.jar'
+name = 'KeepOnMining'
+side = 'client'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1', '1.21.2', '1.21.3', '1.21.4', '1.21.5', '1.21.6', '1.21.7', '1.21.8' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '80a7ea26bb9f111bcf60c9e6baef85d43c4f0f85'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6938623
+project-id = 1336725
