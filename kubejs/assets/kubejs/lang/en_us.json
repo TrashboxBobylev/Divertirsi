@@ -1,4 +1,10 @@
 {
+    "modpack.unlocks_root": "Starter Chest unlocks",
+    "modpack.unlocks_root_desc": "Unlock things to be added into spaceship's restock chest",
+    "modpack.unlocked_starter_item": "This item is now permanently in your spaceship chest!",
+
+    "modpack.unlocked_drill_stone": "More Decent Drill unlock",
+
     "item.kubejs.drill.universal": "This drill can mine all blocks that axe, shovel, hoe and pickaxe can",
     "item.kubejs.drill_wooden": "Basic Drill",
     "item.kubejs.drill_wooden.tooltip": "§oA pinnacle of primitive engineering, this drill surpasses any expectation of advanced caveman.\n\nIt sucks ass.",

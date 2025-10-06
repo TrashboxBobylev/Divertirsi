@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:clock",
+      "count": 1
+    },
+    "title": {
+      "translate": "modpack.unlocks_root"
+    },
+    "description": {
+      "translate": "modpack.unlocks_root_desc"
+    },
+    "background": "chisel_chipped_integration:textures/block/tyrian_shiny_plate_ctm/empty.png",
+    "frame": "task",
+    "show_toast": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

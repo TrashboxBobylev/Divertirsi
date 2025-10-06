@@ -1,0 +1,33 @@
+{
+  "parent": "modpack:unlocks/root",
+  "display": {
+    "icon": {
+      "id": "kubejs:drill_stone",
+      "count": 1
+    },
+    "title": {
+      "translate": "modpack.unlocked_drill_stone"
+    },
+    "description": {
+      "translate": "modpack.unlocked_starter_item"
+    },
+    "frame": "task",
+    "show_toast": true
+  },
+  "criteria": {
+    "cycle_2": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_scores",
+            "entity": "this",
+            "scores": {
+              "cycle": 2
+            }
+          }
+        ]
+      }
+    }
+  }
+}
