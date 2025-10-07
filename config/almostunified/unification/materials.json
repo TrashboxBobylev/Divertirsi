@@ -2,7 +2,11 @@
   "mod_priorities": [
     "minecraft",
     "kubejs",
-    "crafttweaker"
+    "crafttweaker",
+    "railcraft",
+    "energizedpower",
+    "immersiveengineering",
+    "oritech"
   ],
   "priority_overrides": {},
   "stone_variants": [
@@ -35,6 +39,6 @@
   ],
   "ignored_recipe_ids": [],
   "recipe_viewer_hiding": true,
-  "loot_unification": false,
+  "loot_unification": true,
   "ignored_loot_tables": []
 }
