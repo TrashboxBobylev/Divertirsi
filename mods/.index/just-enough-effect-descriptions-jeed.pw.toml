@@ -1,0 +1,16 @@
+filename = 'jeed-1.21-2.3.0.jar'
+name = 'Just Enough Effect Descriptions (JEED)'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '612b0bc3da3c6239837c420b0bbee48739c8338e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7035045
+project-id = 532286

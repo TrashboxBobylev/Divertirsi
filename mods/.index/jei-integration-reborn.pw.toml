@@ -1,0 +1,16 @@
+filename = 'jei_integration_reborn-1.0.1.jar'
+name = 'JEI Integration: Reborn'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '3800d75676d9cfc5d39bad96709266c56da81e20'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6678778
+project-id = 1291136
