@@ -1,19 +1,4 @@
 {
-  "extendedcrafting": {
-    "ender_crafter": true,
-    "elite_auto_table": true,
-    "basic_auto_table": true,
-    "flux_crafter": true,
-    "advanced_table": true,
-    "auto_ender_crafter": true,
-    "ultimate_table": true,
-    "ultimate_auto_table": true,
-    "elite_table": true,
-    "basic_table": true,
-    "crafting_core": true,
-    "advanced_auto_table": true,
-    "compressor": true
-  },
   "minecraft": {
     "item_storage.show_name_amount": 5,
     "furnace": true,
@@ -67,8 +52,11 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
-  "jadeaddons": {
-    "equipment_requirement": ""
+  "railcraft": {
+    "signals": true,
+    "track_component": true,
+    "locomotive": true,
+    "switch_track": true
   },
   "jade_access": {
     "held_item": true,
@@ -77,11 +65,14 @@
     "entity": true,
     "entity_variant": true
   },
-  "jadeaddons.lootr": {
-    "info": true
+  "oritech": {
+    "machine_core_controller": true
   },
   "ftbquests": {
     "barrier": true
+  },
+  "immersiveengineering": {
+    "multiblock_icon": true
   },
   "jade": {
     "coordinates.rel": false,
@@ -94,13 +85,39 @@
     "block_properties": false,
     "mod_name": true
   },
-  "astages": {
-    "block_component_provider": true
-  },
   "balm": {
     "jade": true
   },
   "custommachinery": {
     "machine_component_provider": true
+  },
+  "extendedcrafting": {
+    "ender_crafter": true,
+    "elite_auto_table": true,
+    "basic_auto_table": true,
+    "flux_crafter": true,
+    "advanced_table": true,
+    "auto_ender_crafter": true,
+    "ultimate_table": true,
+    "ultimate_auto_table": true,
+    "elite_table": true,
+    "basic_table": true,
+    "crafting_core": true,
+    "advanced_auto_table": true,
+    "compressor": true
+  },
+  "xycraft": {
+    "energy_pipe_debug": true,
+    "tank_component": true,
+    "extractor_component": true
+  },
+  "jadeaddons": {
+    "equipment_requirement": ""
+  },
+  "jadeaddons.lootr": {
+    "info": true
+  },
+  "astages": {
+    "block_component_provider": true
   }
 }

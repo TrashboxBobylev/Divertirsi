@@ -17,6 +17,9 @@
   "extendedcrafting:ultimate_auto_table": null,
   "extendedcrafting:ultimate_table": null,
   "ftbquests:barrier": null,
+  "immersiveengineering:multiblock_icon": null,
+  "immersiveengineering:multiblock_inventory": null,
+  "immersiveengineering:multiblock_tank": null,
   "jade:block_face": null,
   "jade:block_properties": null,
   "jade:block_states": null,
@@ -78,5 +81,14 @@
   "minecraft:total_enchantment_power": null,
   "minecraft:villager_profession": null,
   "minecraft:waxed": null,
-  "minecraft:zombie_villager": null
+  "minecraft:zombie_villager": null,
+  "oritech:machine_core_controller": null,
+  "railcraft:locomotive": null,
+  "railcraft:signals": null,
+  "railcraft:switch_track": null,
+  "railcraft:track_component": null,
+  "xycraft:energy_pipe_debug": null,
+  "xycraft:extractor_component": null,
+  "xycraft:extractor_output": null,
+  "xycraft:tank_component": null
 }

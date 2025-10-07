@@ -1,0 +1,16 @@
+filename = 'oritech-neoforge-1.21.1-0.18.1.jar'
+name = 'Oritech'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = '94cb07346260a2faeae9dbb6b85dcd43dcfa6e8e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7054741
+project-id = 1030830
