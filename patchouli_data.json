@@ -1,5 +1,16 @@
 {
   "bookGuiScale": 0,
   "clickedVisualize": false,
-  "bookData": {}
+  "bookData": {
+    "actuallyadditions:booklet": {
+      "viewedEntries": [
+        "actuallyadditions:tutorial",
+        "actuallyadditions:intro",
+        "actuallyadditions:engineer_house",
+        "actuallyadditions:crystals"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
+    }
+  }
 }
