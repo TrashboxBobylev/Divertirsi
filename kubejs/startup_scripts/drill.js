@@ -9,6 +9,8 @@ let tool_tiers = [
     "#minecraft:incorrect_for_netherite_tool"
 ];
 
+global["drills"] = [];
+
 /**
  * @param {$ItemBuilder_} event 
  * @param {number} miningSpeed 
@@ -24,6 +26,7 @@ function defineDrill(event, miningSpeed, tier, name){
             new $Tool.Rule("#minecraft:mineable/shovel", miningSpeed, true),
             new $Tool.Rule("#minecraft:mineable/hoe", miningSpeed, true),
     ], 1, 0);
+    global.drills.push("kubejs:drill_" + name);
 
     return event.create("drill_" + name).displayName({translate: `item.kubejs.drill_${name}`}).component("tool", toolComponent).component("unbreakable", new $Unbreakable(true)).maxStackSize(1).tooltip(Component.join({translate: `item.kubejs.drill.universal`}, "\n\n", {translate: `item.kubejs.drill_${name}.tooltip`}));
 }
