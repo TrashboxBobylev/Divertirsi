@@ -11,6 +11,31 @@
       ],
       "bookmarks": [],
       "completedManualQuests": []
+    },
+    "railcraft:guide_book": {
+      "viewedEntries": [
+        "railcraft:multiblock/iron_tank",
+        "railcraft:multiblock/blast_furnace",
+        "railcraft:multiblock/coke_oven",
+        "railcraft:multiblock/steam_boiler",
+        "railcraft:multiblock/steam_turbine",
+        "railcraft:multiblock/water_tank",
+        "railcraft:tools/charge_meter",
+        "railcraft:tools/overalls",
+        "railcraft:tools/crowbar",
+        "railcraft:tracks/control_track",
+        "railcraft:tracks/high_speed_booster_track",
+        "railcraft:tracks/high_speed_transition_track",
+        "railcraft:tracks/one_way_track",
+        "railcraft:tracks/turnout_track",
+        "railcraft:track_type/abandoned",
+        "railcraft:track_type/strap_iron",
+        "railcraft:track_type/reinforced",
+        "railcraft:track_type/high_speed",
+        "railcraft:track_type/iron"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
     }
   }
 }

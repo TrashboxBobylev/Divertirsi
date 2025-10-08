@@ -1,0 +1,16 @@
+filename = 'bblcore-1.21-1.3.20.jar'
+name = 'BBL Core'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '426bb6a9724ac6b6ef4d45f7c089946e7fd11602'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7048684
+project-id = 1135181
