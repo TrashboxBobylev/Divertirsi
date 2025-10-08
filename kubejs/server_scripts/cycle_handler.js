@@ -2,7 +2,7 @@
     @returns {integer} Amount of seconds each cycle lasts
 */
 function max_cycle_duration(){
-    return 200;
+    return 20;
 }
 
 function new_base_deny_radius(){
@@ -11,10 +11,35 @@ function new_base_deny_radius(){
 
 const $TeamManager = Java.loadClass("dev.ftb.mods.ftbteams.api.TeamManager");
 const $TeamAPI = Java.loadClass("dev.ftb.mods.ftbteams.api.FTBTeamsAPI");
+const $Inventory = Java.loadClass("net.minecraft.world.entity.player.Inventory");
 const $MinecraftServer = Java.loadClass("net.minecraft.server.MinecraftServer");
 const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
 const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
 const $ObjectiveCriteria = Java.loadClass("net.minecraft.world.scores.criteria.ObjectiveCriteria");
+
+/**
+ * @param {$Player_} player 
+ */
+function resetPlayer(player){
+    /**
+     * @param {$ItemStack} item 
+     * @returns {boolean}
+     */
+    function isValid(item){
+        return false;
+    }
+    // ignore armor
+    for (let index = 0; index < $Inventory.INVENTORY_SIZE; index++){
+        if (!isValid(player.inventory.getItem(index))){
+            player.inventory.removeItem(index, 64);
+        }
+    }
+    player.setHealth(player.maxHealth());
+    player.foodData.setFoodLevel(20);
+    player.foodData.setSaturation(3);
+    player.setGameMode("adventure");
+    player.stages.add("spaceship");
+}
 
 PlayerEvents.tick(event => {
     let cycle_bar = event.player.name.getString().toLowerCase() + "_cycle";
@@ -96,8 +121,7 @@ PlayerEvents.tick(event => {
                     event.server.runCommandSilent(`execute in minecraft:the_end run teleport ${event.player.name.getString()} ${result_x+11} ${result_y+2} ${result_z+8} 0 0`);
                     let start_chest = spaceship_world.getBlockEntity(new BlockPos(result_x+11, result_y+1, result_z+10));
                     start_chest.performRefresh();
-                    event.player.setGameMode("adventure");
-                    event.player.stages.add("spaceship");
+                    resetPlayer(event.player);
                 });
                 let score = event.player.scoreboard.getOrCreatePlayerScore(event.player, event.player.scoreboard.getObjective("cycle"));
                 score.increment();
