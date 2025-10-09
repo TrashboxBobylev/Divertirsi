@@ -45,6 +45,7 @@ PlayerEvents.tick(event => {
     let cycle_bar = event.player.name.getString().toLowerCase() + "_cycle";
     if (!event.player.persistentData.getBoolean("first_time") || !event.player.stages.has("cycle_stops")){
         event.player.persistentData.putBoolean("first_time", true);
+        event.player.persistentData.put("anchor_pos", NBT.toTag({x: event.player.x, y: event.player.y, z: event.player.z}));
         // reset the cycle
         if (BossBarUtils.get(cycle_bar) == null){
             BossBarUtils.create(cycle_bar, "Fun Time", event.player);
@@ -245,6 +246,7 @@ FTBQuestsEvents.completed("4A779A20378515FF", event => {
         player.server.runCommandSilent(`execute as ${player.name.getString()} run effect give @s resistance 5 255 true`);
         player.server.scheduleInTicks(10, _ => {
             player.server.runCommandSilent(`execute in minecraft:overworld run spawnpoint ${player.username} ${Math.round(respawn_point.x)} ${Math.round(player.y)} ${Math.round(respawn_point.z)}`);
+            player.persistentData.put("anchor_pos", NBT.toTag({x: player.x, y: player.y, z: player.z}));
             player.stages.remove("cycle_stops");
             player.persistentData.putInt("cycle_time", 0);
             BossBarUtils.setVisible(cycle_bar, true);
