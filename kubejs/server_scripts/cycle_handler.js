@@ -34,7 +34,7 @@ function resetPlayer(player){
             player.inventory.removeItem(index, 64);
         }
     }
-    player.setHealth(player.maxHealth());
+    player.setHealth(player.maxHealth);
     player.foodData.setFoodLevel(20);
     player.foodData.setSaturation(3);
     player.setGameMode("adventure");
