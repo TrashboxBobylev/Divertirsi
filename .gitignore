@@ -24,3 +24,4 @@ spark-modernfix/tmp
 kubejs/config/probe-settings.json
 kubejs/*/jsconfig.json
 config/fabric/indigo-renderer.properties
+patchouli_data.json
