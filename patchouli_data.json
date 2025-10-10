@@ -46,6 +46,15 @@
       ],
       "bookmarks": [],
       "completedManualQuests": []
+    },
+    "industrialforegoing:industrial_foregoing": {
+      "viewedEntries": [
+        "industrialforegoing:tools/infinity_tools",
+        "industrialforegoing:tools/infinity_nuke",
+        "industrialforegoing:basics/dissolution_chamber"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
     }
   }
 }
