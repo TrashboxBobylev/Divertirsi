@@ -1,0 +1,16 @@
+filename = 'JAOPCA-1.21.1-5.0.12.19.jar'
+name = 'JAOPCA'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'ebf70754669bfce7735d6d77ee1e2bd1c151c180'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6973653
+project-id = 266936

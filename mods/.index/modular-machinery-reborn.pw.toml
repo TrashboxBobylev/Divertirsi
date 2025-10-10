@@ -1,0 +1,16 @@
+filename = 'modular_machinery_reborn-1.21.1-2.5.1.jar'
+name = 'Modular Machinery Reborn'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '85340ac1fc099321f427beb93ddfd20c8e3323c1'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6982384
+project-id = 1083840

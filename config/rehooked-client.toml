@@ -1,0 +1,5 @@
+[visuals]
+	#Should the blaze hook use particle effects instead of chains?
+	blaze_hook_particles = true
+	#Should the ender hook use particle effects instead of chains?
+	ender_hook_particles = true
