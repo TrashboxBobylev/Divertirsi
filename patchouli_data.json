@@ -2,6 +2,16 @@
   "bookGuiScale": 0,
   "clickedVisualize": false,
   "bookData": {
+    "laserio:laseriobook": {
+      "viewedEntries": [
+        "laserio:laser_node",
+        "laserio:laser_connector",
+        "laserio:laser_connector_advanced",
+        "laserio:card_holder"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
+    },
     "actuallyadditions:booklet": {
       "viewedEntries": [
         "actuallyadditions:tutorial",
