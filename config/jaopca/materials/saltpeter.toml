@@ -11,6 +11,8 @@
 	hasEffect = false
 	#The model type of the material.
 	modelType = "dust"
+	#The color of this material.
+	color = 0xB9B9B9
 
 [enderio]
 	#The default byproduct material to output in Ender IO's sagmill.
