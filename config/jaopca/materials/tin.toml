@@ -12,7 +12,7 @@
 	#The model type of the material.
 	modelType = "metallic"
 	#The color of this material.
-	color = 0xD3D3D3
+	color = 13882323
 
 [enderio]
 	#The default byproduct material to output in Ender IO's sagmill.

@@ -12,7 +12,7 @@
 	#The model type of the material.
 	modelType = "crystal"
 	#The color of this material.
-	color = 0x2D3940
+	color = 2963776
 
 [enderio]
 	#The default byproduct material to output in Ender IO's sagmill.

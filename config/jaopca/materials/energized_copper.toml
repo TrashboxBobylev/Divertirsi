@@ -12,4 +12,4 @@
 	#The model type of the material.
 	modelType = "metallic"
 	#The color of this material.
-	color = 0xD8A586
+	color = 14198150

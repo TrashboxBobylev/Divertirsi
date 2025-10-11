@@ -12,4 +12,4 @@
 	#The model type of the material.
 	modelType = "crystal"
 	#The color of this material.
-	color = 0x7CC190
+	color = 8176016
