@@ -16,6 +16,8 @@ const $MinecraftServer = Java.loadClass("net.minecraft.server.MinecraftServer");
 const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
 const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
 const $ObjectiveCriteria = Java.loadClass("net.minecraft.world.scores.criteria.ObjectiveCriteria");
+const $ServerWorld = Java.loadClass("net.minecraft.server.level.ServerLevel");
+const $BiomeTags = Java.loadClass("net.minecraft.tags.BiomeTags");
 
 /**
  * @param {$Player_} player 
@@ -151,11 +153,12 @@ function countDown(player, amount, process_callback, succeed_callback){
 
 /**
  * Randomly picks a point in 3D space that doesn't touch existing points
+ * @param {$ServerLevel} world The world we are searching
  * @param {Array} existingPoints - Array of existing 3D points as [x, z] arrays
  * @param {number} radius - Radius of the exclusion sphere around each point
  * @returns {Array|null} A valid [x, z] point or null if no valid point found
  */
-function findRandomPointAwayFromPoints(existingPoints, radius) {
+function findRandomPointAwayFromPoints(world, existingPoints, radius) {
 
     const maxAttempts = 1000;
 
@@ -193,6 +196,10 @@ function findRandomPointAwayFromPoints(existingPoints, radius) {
                 return false;
             }
             if (squaredDistance(point, {x: centerX, z: centerZ}) > maxDistanceSquared){
+                return false;
+            }
+            // do not spawn in the ocean
+            if (world.getBiome(new BlockPos(point.x, 64, point.z))["is(net.minecraft.tags.TagKey)"]($BiomeTags.IS_OCEAN)){
                 return false;
             }
         }
@@ -235,7 +242,7 @@ FTBQuestsEvents.completed("4A779A20378515FF", event => {
         let respawn_point = {};
         let cycle_bar = player.name.getString().toLowerCase() + "_cycle";
         do {
-            let point = findRandomPointAwayFromPoints(base_array, new_base_deny_radius());
+            let point = findRandomPointAwayFromPoints(world, base_array, new_base_deny_radius());
             if (point == null){
                 continue;
             }
