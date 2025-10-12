@@ -1,0 +1,16 @@
+filename = 'classicpipes-neoforge-1.21.1-1.0.5.jar'
+name = 'Classic Pipes'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '5f81131c4578472306973e04c3d7be3f92bbd22e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7077337
+project-id = 1351745
