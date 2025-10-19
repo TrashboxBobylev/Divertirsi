@@ -1,0 +1,11 @@
+{
+    "name": "block.custommachinery.andesite_infection",
+    "appearance": {
+		"block": "minecraft:andesite"
+	},
+    "tooltips": [],
+    "components": [],
+    "gui": [],
+    "jei": [],
+    "catalysts": []
+}
