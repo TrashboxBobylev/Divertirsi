@@ -30,7 +30,8 @@ const AndesiteInfection = {
         "minecraft:diorite": {block: "minecraft:andesite", chance: 0.25},
         "minecraft:granite": {block: "minecraft:andesite", chance: 0.25},
         "minecraft:deepslate": {block: "kubejs:deepslate_andesite", chance: 0.15},
-        "kubejs:deepslate_andesite": {block: "minecraft:andesite", chance: 0.25}
+        "kubejs:deepslate_andesite": {block: "minecraft:andesite", chance: 0.25},
+        "minecraft:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.075}
     }
 };
 
