@@ -26,29 +26,29 @@ const AndesiteInfection = {
     },
 
     dictionary: {
-        "minecraft:stone": {block: "minecraft:andesite", chance: 0.25},
-        "minecraft:diorite": {block: "minecraft:andesite", chance: 0.25},
-        "minecraft:granite": {block: "minecraft:andesite", chance: 0.25},
-        "minecraft:deepslate": {block: "kubejs:deepslate_andesite", chance: 0.15},
-        "kubejs:deepslate_andesite": {block: "minecraft:andesite", chance: 0.25},
-        "minecraft:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.075}
+        "minecraft:stone": {block: "minecraft:andesite", chance: 0.5},
+        "minecraft:diorite": {block: "minecraft:andesite", chance: 0.5},
+        "minecraft:granite": {block: "minecraft:andesite", chance: 0.5},
+        "minecraft:deepslate": {block: "kubejs:deepslate_andesite", chance: 0.3},
+        "kubejs:deepslate_andesite": {block: "minecraft:andesite", chance: 0.5},
+        "minecraft:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.1}
     }
 };
 
 ServerEvents.recipes(event => {
     // ensures function will run constantly
-    event.recipes.custommachinery.custom_machine("kubejs:andesite_infection", 120).requireBlock(["kubejs:andesite_infection"], true, 0, 0, 0, 0, 0, 0).requireFunctionOnEnd("infect");
+    event.recipes.custommachinery.custom_machine("kubejs:andesite_infection", 100).requireBlock(["kubejs:andesite_infection"], true, 0, 0, 0, 0, 0, 0).requireFunctionOnEnd("infect");
 });
 
 CustomMachineryEvents.recipeFunction("infect", event => {
     const currentChunk = new $ChunkPos(event.tile.blockPos);
     let world = event.tile.level;
     let infectPositions = [];
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 150, -63, -50);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 120, -50, -24);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 100, -24, 0);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 80, 0, 64);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 55, 64, 128);
+    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 15, -63, -50);
+    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 12, -50, -24);
+    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 10, -24, 0);
+    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 8, 0, 64);
+    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 5, 64, 128);
 
     for (let blockPos of infectPositions){
         let block = world.getBlockState(blockPos);
