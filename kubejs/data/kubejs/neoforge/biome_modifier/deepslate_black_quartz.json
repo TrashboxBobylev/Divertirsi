@@ -1,0 +1,6 @@
+{
+    "type": "neoforge:add_features",
+    "biomes": "#minecraft:is_overworld",
+    "features": "actuallyadditions:ore_black_quartz_deepslate",
+    "step": "underground_ores"
+  }
