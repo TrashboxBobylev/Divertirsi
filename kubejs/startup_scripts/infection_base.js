@@ -22,6 +22,7 @@ StartupEvents.registry('block', event => {
         .tagItem('c:ores')
         .tagItem('c:ores_in_ground/deepslate')
         .tagItem('c:ores/black_quartz')
+        .randomTick(callback => {});
 });
 
 BlockEvents.modification(event => {
@@ -29,10 +30,10 @@ BlockEvents.modification(event => {
         handler.randomTickCallback = (tick) => {
             
         }
-    })
+    });
     event.modify("kubejs:deepslate_black_quartz", handler => {
         handler.randomTickCallback = (tick) => {
             
         }
-    })
+    });
 })

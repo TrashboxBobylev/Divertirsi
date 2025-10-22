@@ -1,6 +1,4 @@
 const poses = [{x: -1, y: 0, z: 0}, {x: 1, y: 0, z: 0}, {x: 0, y: 0, z: -1}, {x: 0, y: 0, z: 1}, {x: 0, y: 1, z: 0}, {x: 0, y: -1, z: 0}, {x: 0, y: 1, z: 0}, {x: 0, y: -1, z: 0}];
-const $ServerLevel = Java.loadClass("net.minecraft.server.level.ServerLevel");
-const $RandomSource = Java.loadClass("net.minecraft.util.RandomSource");
 
 ServerEvents.tags("block", event => {
     const stones = event.get('minecraft:stone_ore_replaceables').getObjectIds();
@@ -13,32 +11,34 @@ ServerEvents.tags("block", event => {
 
 const AndesiteInfection = {
     dictionary: {
-        "kubejs:andesite_stone_infectable": "minecraft:andesite",
-        "kubejs:andesite_deepslate_infectable": "kubejs:deepslate_andesite",
-        "kubejs:andesite_infected": "minecraft:andesite",
-        "chipped:andesite": "actuallyadditions:black_quartz_ore"
+        "kubejs:andesite_stone_infectable": {block: "minecraft:andesite", chance: 1.0, explode: false},
+        "kubejs:andesite_deepslate_infectable": {block: "kubejs:deepslate_andesite", chance: 1.0, explode: false},
+        "kubejs:andesite_infected": {block: "minecraft:andesite", chance: 0.75, explode: false},
+        "chipped:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.25, explode: false},
+        "c:ores/black_quartz": {block: "actuallyadditions:black_quartz_block", chance: 0.15, explode: true},
     },
 
         /**
-     * @param {Block} block
-     * @param {$ServerLevel} level
-     * @param {$RandomSource} random 
+     * @param {$BlockContainerJS_} block
+     * @param {$ServerLevel_} level
+     * @param {$RandomSource_} random 
      */
     infectWithAndesite(block, random, level){
-        let tries = 0;
-        do {
-            let randomPos = poses[random.nextInt(poses.length)];
-            let targetPos = new BlockPos(block.pos.x + randomPos.x, block.pos.y + randomPos.y, block.pos.z + randomPos.z);
-            let targetBlock = level.getBlockState(targetPos);
-            let didIt = false;
-            targetBlock.tags.filter(tagkey => tagkey.location().toString() in AndesiteInfection.dictionary)
-            .forEach(tagkey => {
-                level.setBlockAndUpdate(targetPos, AndesiteInfection.dictionary[tagkey.location()]);
-                didIt = true;
-            });
-            if (didIt)
-                break;
-        } while (++tries < 6);
+        let randomPos = poses[random.nextInt(poses.length)];
+        let targetPos = new BlockPos(block.pos.x + randomPos.x, block.pos.y + randomPos.y, block.pos.z + randomPos.z);
+        let targetBlock = level.getBlockState(targetPos);
+        targetBlock.tags.filter(tagkey => tagkey.location().toString() in AndesiteInfection.dictionary)
+        .forEach(tagkey => {
+            if (random.nextFloat() < AndesiteInfection.dictionary[tagkey.location()].chance){
+                if (AndesiteInfection.dictionary[tagkey.location()].explode){
+                    for (let pos of BlockPos.betweenClosed(block.pos.offset(-1, -1, -1), block.pos.offset(1, 1, 1))){
+                        if (!level.getBlockState(pos).air)
+                            level.setBlockAndUpdate(pos, "minecraft:stone");
+                    }
+                }
+                level.setBlockAndUpdate(targetPos, AndesiteInfection.dictionary[tagkey.location()].block);
+            }
+        });
     }
 };
 
