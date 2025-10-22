@@ -1,61 +1,53 @@
-const $ChunkPos = Java.loadClass("net.minecraft.world.level.ChunkPos");
+const poses = [{x: -1, y: 0, z: 0}, {x: 1, y: 0, z: 0}, {x: 0, y: 0, z: -1}, {x: 0, y: 0, z: 1}, {x: 0, y: 1, z: 0}, {x: 0, y: -1, z: 0}, {x: 0, y: 1, z: 0}, {x: 0, y: -1, z: 0}];
+const $ServerLevel = Java.loadClass("net.minecraft.server.level.ServerLevel");
+const $RandomSource = Java.loadClass("net.minecraft.util.RandomSource");
 
-// make infection spawn in every chunk
-NativeEvents.onEvent("net.neoforged.neoforge.event.level.ChunkEvent$Load", event => {
-    let infection_pos = new BlockPos(event.chunk.pos.getMiddleBlockX(), -63, event.chunk.pos.getMiddleBlockZ());
-    if (event.isNewChunk()){
-        event.chunk.level.server.scheduleInTicks(10, _ => {
-            event.chunk.level.setBlockAndUpdate(infection_pos, "kubejs:andesite_infection");
-        });
-    }
+ServerEvents.tags("block", event => {
+    const stones = event.get('minecraft:stone_ore_replaceables').getObjectIds();
+    const blacklist = Ingredient.of(/.*andesite.*/);
+    stones.forEach(stone => {
+        if (!blacklist.test(stone)) event.add('kubejs:andesite_stone_infectable', stone);
+    });
+    event.add("kubejs:andesite_deepslate_infectable", "#minecraft:deepslate_ore_replaceables");
 });
 
 const AndesiteInfection = {
-    /**
-     * Grab some random block positions in current chunk and add it into the list
-     * @param {BlockPos[]} storage 
-     * @param {$ChunkPos} chunk
-     * @param {number} amount 
-     * @param {number} minY 
-     * @param {number} maxY 
-     */
-    grabBlockSample(storage, chunk, amount, minY, maxY){
-        for (let i = 0; i < amount; i++){
-            storage.push(new BlockPos(chunk.getBlockX(Math.random() * 15), minY + Math.random() * (maxY - minY), chunk.getBlockZ(Math.random() * 15)));
-        }
+    dictionary: {
+        "kubejs:andesite_stone_infectable": "minecraft:andesite",
+        "kubejs:andesite_deepslate_infectable": "kubejs:deepslate_andesite",
+        "kubejs:andesite_infected": "minecraft:andesite",
+        "chipped:andesite": "actuallyadditions:black_quartz_ore"
     },
 
-    dictionary: {
-        "minecraft:stone": {block: "minecraft:andesite", chance: 0.5},
-        "minecraft:diorite": {block: "minecraft:andesite", chance: 0.5},
-        "minecraft:granite": {block: "minecraft:andesite", chance: 0.5},
-        "minecraft:deepslate": {block: "kubejs:deepslate_andesite", chance: 0.3},
-        "kubejs:deepslate_andesite": {block: "minecraft:andesite", chance: 0.5},
-        "minecraft:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.1}
+        /**
+     * @param {Block} block
+     * @param {$ServerLevel} level
+     * @param {$RandomSource} random 
+     */
+    infectWithAndesite(block, random, level){
+        let tries = 0;
+        do {
+            let randomPos = poses[random.nextInt(poses.length)];
+            let targetPos = new BlockPos(block.pos.x + randomPos.x, block.pos.y + randomPos.y, block.pos.z + randomPos.z);
+            let targetBlock = level.getBlockState(targetPos);
+            let didIt = false;
+            targetBlock.tags.filter(tagkey => tagkey.location().toString() in AndesiteInfection.dictionary)
+            .forEach(tagkey => {
+                level.setBlockAndUpdate(targetPos, AndesiteInfection.dictionary[tagkey.location()]);
+                didIt = true;
+            });
+            if (didIt)
+                break;
+        } while (++tries < 6);
     }
 };
 
-ServerEvents.recipes(event => {
-    // ensures function will run constantly
-    event.recipes.custommachinery.custom_machine("kubejs:andesite_infection", 100).requireBlock(["kubejs:andesite_infection"], true, 0, 0, 0, 0, 0, 0).requireFunctionOnEnd("infect");
+BlockEvents.randomTick("actuallyadditions:black_quartz_ore", event => {
+    const {block, random, level} = event;
+    AndesiteInfection.infectWithAndesite(block, random, level);
 });
 
-CustomMachineryEvents.recipeFunction("infect", event => {
-    const currentChunk = new $ChunkPos(event.tile.blockPos);
-    let world = event.tile.level;
-    let infectPositions = [];
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 15, -63, -50);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 12, -50, -24);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 10, -24, 0);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 8, 0, 64);
-    AndesiteInfection.grabBlockSample(infectPositions, currentChunk, 5, 64, 128);
-
-    for (let blockPos of infectPositions){
-        let block = world.getBlockState(blockPos);
-        if (!block.air && block.id in AndesiteInfection.dictionary && Math.random() < AndesiteInfection.dictionary[block.id].chance){
-            world.setBlockAndUpdate(blockPos, AndesiteInfection.dictionary[block.id].block);
-        }
-    }
-
-    event.success();
+BlockEvents.randomTick("kubejs:deepslate_black_quartz", event => {
+    const {block, random, level} = event;
+    AndesiteInfection.infectWithAndesite(block, random, level);
 });
