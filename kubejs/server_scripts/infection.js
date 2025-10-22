@@ -13,8 +13,8 @@ const AndesiteInfection = {
     dictionary: {
         "kubejs:andesite_stone_infectable": {block: "minecraft:andesite", chance: 1.0, explode: false},
         "kubejs:andesite_deepslate_infectable": {block: "kubejs:deepslate_andesite", chance: 1.0, explode: false},
-        "kubejs:andesite_infected": {block: "minecraft:andesite", chance: 0.8, explode: false},
-        "chipped:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.66, explode: false},
+        "kubejs:andesite_infected": {block: "minecraft:andesite", chance: 1.0, explode: false},
+        "chipped:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 1.0, explode: false},
         "c:ores/black_quartz": {block: "kubejs:crystal_black_quartz", chance: 0.35, explode: true},
     },
 
