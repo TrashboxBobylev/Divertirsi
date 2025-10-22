@@ -13,5 +13,6 @@
     "item.kubejs.drill_stone.tooltip": "§oJust a smidge better at it is supposed to do.",
     
     "block.kubejs.deepslate_black_quartz": "Deepslate Black Quartz Ore",
-    "block.kubejs.deepslate_andesite": "Andesite-Infected Deepslate"
+    "block.kubejs.deepslate_andesite": "Andesite-Infected Deepslate",
+    "block.kubejs.crystal_black_quartz": "Crystallized Black Quartz"
 }

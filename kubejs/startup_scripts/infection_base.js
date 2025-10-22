@@ -23,6 +23,15 @@ StartupEvents.registry('block', event => {
         .tagItem('c:ores_in_ground/deepslate')
         .tagItem('c:ores/black_quartz')
         .randomTick(callback => {});
+
+    event.create('kubejs:crystal_black_quartz')
+        .soundType('amethyst')
+        .hardness(9.0)
+        .resistance(12.0)
+        .requiresTool(true)
+        .tagBlock('minecraft:mineable/pickaxe')
+        .tagBlock('minecraft:needs_iron_tool')
+        .tagBlock('minecraft:crystal_sound_blocks')
 });
 
 BlockEvents.modification(event => {

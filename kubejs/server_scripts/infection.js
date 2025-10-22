@@ -14,8 +14,8 @@ const AndesiteInfection = {
         "kubejs:andesite_stone_infectable": {block: "minecraft:andesite", chance: 1.0, explode: false},
         "kubejs:andesite_deepslate_infectable": {block: "kubejs:deepslate_andesite", chance: 1.0, explode: false},
         "kubejs:andesite_infected": {block: "minecraft:andesite", chance: 0.75, explode: false},
-        "chipped:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.25, explode: false},
-        "c:ores/black_quartz": {block: "actuallyadditions:black_quartz_block", chance: 0.15, explode: true},
+        "chipped:andesite": {block: "actuallyadditions:black_quartz_ore", chance: 0.5, explode: false},
+        "c:ores/black_quartz": {block: "kubejs:crystal_black_quartz", chance: 0.25, explode: true},
     },
 
         /**
@@ -33,7 +33,7 @@ const AndesiteInfection = {
                 if (AndesiteInfection.dictionary[tagkey.location()].explode){
                     for (let pos of BlockPos.betweenClosed(block.pos.offset(-1, -1, -1), block.pos.offset(1, 1, 1))){
                         if (!level.getBlockState(pos).air)
-                            level.setBlockAndUpdate(pos, "minecraft:stone");
+                            level.setBlockAndUpdate(pos, random.nextInt(3) == 0 ? (pos.y > 0 ? "minecraft:andesite" : "kubejs:deepslate_andesite") : (pos.y > 0 ? "minecraft:stone" : "minecraft:deepslate"));
                     }
                 }
                 level.setBlockAndUpdate(targetPos, AndesiteInfection.dictionary[tagkey.location()].block);
