@@ -1,0 +1,16 @@
+filename = 'deslabification-1.2.0+1.21.1+neoforge.jar'
+name = 'Deslabification (slabs to blocks)'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'e10521bf1d16af2227911dcf9af0155156a3f384'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6340392
+project-id = 1063857
