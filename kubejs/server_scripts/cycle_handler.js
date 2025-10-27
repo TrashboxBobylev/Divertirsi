@@ -65,7 +65,7 @@ PlayerEvents.tick(event => {
         }
     }
     
-    if (!event.player.stages.has("cycle_stops") && event.player.tickCount % 20 == 0) {
+    if ((!event.player.stages.has("cycle_stops") && !event.player.isCreative()) && event.player.tickCount % 20 == 0) {
         let cycle_time = event.player.persistentData.getInt("cycle_time");
         cycle_time++;
         event.player.persistentData.putInt("cycle_time", cycle_time);
