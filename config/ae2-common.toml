@@ -60,7 +60,7 @@
 	entropyManipulator = 200000
 	# Default: 20000
 	# Range: > -2147483648
-	portableCell = 20000
+	portableCell = 40000
 	# Default: 20000
 	# Range: > -2147483648
 	colorApplicator = 20000

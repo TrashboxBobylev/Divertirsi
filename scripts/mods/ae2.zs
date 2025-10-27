@@ -1,0 +1,1 @@
+craftingTable.remove(<item:ae2:portable_item_cell_1k>);
