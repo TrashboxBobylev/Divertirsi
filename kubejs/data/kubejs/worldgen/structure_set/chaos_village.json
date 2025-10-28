@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 20697624,
+    "separation": 12,
+    "spacing": 49,
+    "frequency": 0.3
+  },
+  "structures": [
+    {
+      "structure": "kubejs:chaos_village",
+      "weight": 1
+    }
+  ]
+}
