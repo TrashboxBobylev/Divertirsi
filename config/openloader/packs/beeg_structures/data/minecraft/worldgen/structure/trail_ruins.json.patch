@@ -1,0 +1,12 @@
+[
+    {
+        "op": "replace",
+        "path": "/size",
+        "value": 18
+    },
+    {
+        "op": "replace",
+        "path": "/max_distance_from_center",
+        "value": 110
+    }
+]
