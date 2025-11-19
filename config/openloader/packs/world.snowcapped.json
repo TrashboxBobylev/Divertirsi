@@ -978,16 +978,8 @@
       "name": "Lush Caves",
       "array": [
         [
-          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
-          "unassigned",
-          "unassigned",
-          "minecraft:lush_caves"
-        ],
-        [
-          "unassigned",
-          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned",
@@ -996,7 +988,7 @@
         [
           "unassigned",
           "unassigned",
-          "biome_mi4zxwa2",
+          "unassigned",
           "unassigned",
           "unassigned",
           "minecraft:lush_caves"
@@ -1005,7 +997,7 @@
           "unassigned",
           "unassigned",
           "unassigned",
-          "biome_mi4zxwa2",
+          "unassigned",
           "unassigned",
           "minecraft:lush_caves"
         ],
@@ -1014,7 +1006,15 @@
           "unassigned",
           "unassigned",
           "unassigned",
-          "biome_mi4zxwa2",
+          "unassigned",
+          "minecraft:lush_caves"
+        ],
+        [
+          "unassigned",
+          "unassigned",
+          "unassigned",
+          "unassigned",
+          "unassigned",
           "minecraft:lush_caves"
         ]
       ]
@@ -1497,7 +1497,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "unassigned/biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1506,7 +1506,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1515,7 +1515,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1524,7 +1524,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1533,7 +1533,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1542,7 +1542,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1551,7 +1551,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2",
           "unassigned",
           "unassigned",
           "unassigned"
@@ -1560,7 +1560,7 @@
           "minecraft:deep_dark",
           "minecraft:deep_dark",
           "minecraft:deep_dark/minecraft:the_void",
-          "minecraft:the_void/biome_mi4zxwa2",
+          "biome_mi4zxwa2/unassigned",
           "unassigned",
           "unassigned",
           "unassigned"

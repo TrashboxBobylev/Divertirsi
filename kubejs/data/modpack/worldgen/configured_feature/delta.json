@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "chipped:small_diamond_leaded_glass"
+    },
+    "rim": {
+      "Name": "chipped:sanded_basalt"
+    },
+    "rim_size": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 5,
+      "min_inclusive": 1
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 12,
+      "min_inclusive": 5
+    }
+  }
+}
