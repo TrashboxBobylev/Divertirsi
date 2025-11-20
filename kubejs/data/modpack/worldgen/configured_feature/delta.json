@@ -2,7 +2,7 @@
   "type": "minecraft:delta_feature",
   "config": {
     "contents": {
-      "Name": "chipped:small_diamond_leaded_glass"
+      "Name": "enderio:liquid_darkness"
     },
     "rim": {
       "Name": "chipped:sanded_basalt"
