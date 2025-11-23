@@ -502,19 +502,19 @@
 		#The maximum size of a vein. Set to 0 to disable generation
 		# Default: 9
 		# Range: > 0
-		vein_size = 9
+		vein_size = 10
 		#The minimum Y coordinate this ore can spawn at
 		# Default: -48
 		# Range: > -2147483648
-		min_y = -48
+		min_y = -12
 		#The maximum Y coordinate this ore can spawn at
 		# Default: 32
 		# Range: > -2147483648
-		max_y = 32
+		max_y = 24
 		#The number of veins attempted to be generated per chunk
 		# Default: 10
 		# Range: > 0
-		attempts_per_chunk = 10
+		attempts_per_chunk = 5
 		#Set this to true to allow retro-generation of silver Ore.
 		retrogen_enable = false
 
