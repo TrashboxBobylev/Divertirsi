@@ -7,7 +7,7 @@ StartupEvents.registry('block', event => {
         .resistance(6.0)
         .requiresTool(true) 
         .tagBlock('minecraft:mineable/pickaxe')
-        .tagBlock('minecraft:needs_iron_tool')
+        .tagBlock('minecraft:needs_diamond_tool')
 
     event.create('kubejs:deepslate_black_quartz')
         .soundType('deepslate')
@@ -15,7 +15,7 @@ StartupEvents.registry('block', event => {
         .resistance(6.0)
         .requiresTool(true)
         .tagBlock('minecraft:mineable/pickaxe')
-        .tagBlock('minecraft:needs_iron_tool')
+        .tagBlock('minecraft:needs_diamond_tool')
         .tagBlock('c:ores/black_quartz')
         .tagBlock('c:ores_in_ground/deepslate')
         .tagBlock('c:ores')
