@@ -1,4 +1,4 @@
-filename = 'CreativeCore_NEOFORGE_v2.13.13_mc1.21.1.jar'
+filename = 'CreativeCore_NEOFORGE_v2.13.15_mc1.21.1.jar'
 name = 'CreativeCore'
 side = 'both'
 x-prismlauncher-loaders = [ 'neoforge' ]
@@ -6,11 +6,11 @@ x-prismlauncher-mc-versions = [ '1.21.1' ]
 x-prismlauncher-release-type = 'release'
 
 [download]
-hash = '8aa6b128a44e5a239e3878d55581e59fb7af6749'
+hash = '7a08497685e093d513aaed94b524d82fcd91cbe5'
 hash-format = 'sha1'
 mode = 'metadata:curseforge'
 url = ''
 
 [update.curseforge]
-file-id = 7002671
+file-id = 7221171
 project-id = 257814
