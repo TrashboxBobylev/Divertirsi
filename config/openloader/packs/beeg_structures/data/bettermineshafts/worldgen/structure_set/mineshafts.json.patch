@@ -1,7 +1,0 @@
-[
-    {
-        "op": "replace",
-        "path": "/placement/frequency",
-        "value": 0.0075
-    }
-]
