@@ -5,4 +5,8 @@ ServerEvents.tags("block", event => {
             event.add("minecraft:needs_diamond_tool", block);
         }
     }
+
+    let steel = event.get("immersiveengineering:incorrect_for_steel_tool");
+    steel.removeAll();
+    steel.add("minecraft:incorrect_for_diamond_tool");
 });
