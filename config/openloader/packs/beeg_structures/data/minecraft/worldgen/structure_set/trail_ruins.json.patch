@@ -2,11 +2,11 @@
     {
         "op": "replace",
         "path": "/placement/spacing",
-        "value": 24
+        "value": 20
     },
     {
         "op": "replace",
         "path": "/placement/separation",
-        "value": 12
+        "value": 8
     }
 ]

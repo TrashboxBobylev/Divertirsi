@@ -2,7 +2,7 @@
     {
         "op": "replace",
         "path": "/placement/spacing",
-        "value": 24
+        "value": 40
     },
     {
         "op": "replace",
