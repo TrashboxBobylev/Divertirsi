@@ -1,3 +1,5 @@
+let $EquipmentSlot  = Java.loadClass("net.minecraft.world.entity.EquipmentSlot");
+let $InteractionHand  = Java.loadClass("net.minecraft.world.InteractionHand");
 /**
  * @type Object.<string, string>
  */
@@ -48,3 +50,11 @@ ServerEvents.recipes(event => {
 
     hammer(event, Item.of("kubejs:steel_hammer"), "immersiveengineering:stick_treated");
 });
+a
+EntityEvents.afterHurt(event => {
+    let tool = event.source.getWeaponItem();
+    // let tool = event.entity.getItemInHand($InteractionHand.MAIN_HAND);
+    if (tool.hasTag("c:tools/hammers")){
+        tool.hurtAndBreak(2, event.entity, $EquipmentSlot.MAINHAND);
+    }
+})
