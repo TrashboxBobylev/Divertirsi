@@ -24,8 +24,6 @@ ServerEvents.tags("block", event => {
 LootJS.lootTables(event => {
     for (let block in hammer_possibilities){
         event.create(`crush_${$ResourceLocation.parse(block).path}_with_hammer`).createPool(pool => {
-            pool.addEntry(block);
-            pool.addEntry('immersiveengineering:warning_sign_arrow_right');
             pool.addEntry(hammer_possibilities[block]);
         });
     }
