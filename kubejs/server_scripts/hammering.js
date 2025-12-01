@@ -9,7 +9,9 @@ let hammer_possibilities = {
     "minecraft:cobblestone": LootEntry.of("minecraft:gravel"),
     "minecraft:gravel": LootEntry.of("minecraft:sand"),
     "minecraft:sandstone": LootEntry.of("minecraft:sand"),
-    "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand")
+    "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand"),
+    "minecraft:packed_ice": LootEntry.of("minecraft:ice"),
+    "minecraft:blue_ice": LootEntry.of("minecraft:packed_ice")
 };
 
 ServerEvents.tags("block", event => {
