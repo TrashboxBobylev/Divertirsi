@@ -12,7 +12,7 @@ let hammer_possibilities = {
     "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand"),
     "minecraft:packed_ice": LootEntry.of("minecraft:ice"),
     "minecraft:blue_ice": LootEntry.of("minecraft:packed_ice"),
-    "minecraft:bricks": LootEntry.of("minecraft:brick").setCount(2, 4),
+    "minecraft:bricks": LootEntry.of("minecraft:brick").setCount([2, 4]),
     "minecraft:coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "minecraft:deepslate_coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "minecraft:iron_ore": LootEntry.of("energizedpower:iron_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
@@ -34,6 +34,7 @@ let hammer_possibilities = {
     "immersiveengineering:ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "immersiveengineering:deepslate_ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "oritech:deepslate_platinum_ore": LootEntry.of("oritech:platinum_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+    "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1])
 };
 
 ServerEvents.tags("block", event => {
