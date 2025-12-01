@@ -1,46 +1,35 @@
 let $EquipmentSlot  = Java.loadClass("net.minecraft.world.entity.EquipmentSlot");
 let $InteractionHand  = Java.loadClass("net.minecraft.world.InteractionHand");
 /**
- * @type Object.<string, string>
- */
-let simple_hammer_possibilities = {
-    "minecraft:stone": "minecraft:cobblestone",
-    "minecraft:cobblestone": "minecraft:gravel",
-    "minecraft:gravel": "minecraft:sand",
-    "minecraft:sandstone": "minecraft:sand",
-    "minecraft:red_sandstone": "minecraft:red_sand"
-};
-
-/**
  * @type Object.<string, LootEntry>
  */
 let hammer_possibilities = {
-    "minecraft:polished_andesite": LootEntry.of("minecraft:diamond").randomChance(0.25)
+     "minecraft:stone": LootEntry.of("minecraft:cobblestone"),
+    "minecraft:cobblestone": LootEntry.of("minecraft:gravel"),
+    "minecraft:gravel": LootEntry.of("minecraft:sand"),
+    "minecraft:sandstone": LootEntry.of("minecraft:sand"),
+    "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand")
 };
 
-LootJS.modifiers(event => {
-    for (let block in simple_hammer_possibilities){
-        event.addBlockModifier(block).matchTool("#c:tools/hammers").replaceLoot(
-            block,
-            simple_hammer_possibilities[block],
-            true
-        );
-    }
+ServerEvents.tags("block", event => {
     for (let block in hammer_possibilities){
-        event.addBlockModifier(block).matchTool("#c:tools/hammers").removeLoot(Ingredient.all).addAlternativesLoot(
-                hammer_possibilities[block],
-                block
-        );
+        event.add("modpack:mineable/hammer", block);
     }
 });
 
-ServerEvents.tags("block", event => {
-    for (let block in simple_hammer_possibilities){
-        event.add("modpack:mineable/hammer", block);
-    }
-    for (let block in hammer_possibilities){
-        event.add("modpack:mineable/hammer", block);
-    }
+LootJS.modifiers(event => {
+    event.addBlockModifier("#modpack:mineable/hammer").matchTool("#c:tools/hammers").customAction((context, loot) => {
+        let current_block = context.getParam(LootContextParams.BLOCK_STATE).id;
+        if (current_block in hammer_possibilities){
+            loot.clear();
+            loot.addEntry(LootEntry.alternative(
+                hammer_possibilities[current_block],
+                LootEntry.reference(context.id)
+            ));
+            return loot;
+        }
+        return loot;
+    });
 });
 
 ServerEvents.recipes(event => {
