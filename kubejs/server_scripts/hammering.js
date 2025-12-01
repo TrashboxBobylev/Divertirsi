@@ -4,7 +4,11 @@ let $InteractionHand  = Java.loadClass("net.minecraft.world.InteractionHand");
  * @type Object.<string, string>
  */
 let simple_hammer_possibilities = {
-    "minecraft:polished_deepslate": "chipped:eroded_deepslate"
+    "minecraft:stone": "minecraft:cobblestone",
+    "minecraft:cobblestone": "minecraft:gravel",
+    "minecraft:gravel": "minecraft:sand",
+    "minecraft:sandstone": "minecraft:sand",
+    "minecraft:red_sandstone": "minecraft:red_sand"
 };
 
 /**
@@ -27,6 +31,15 @@ LootJS.modifiers(event => {
                 hammer_possibilities[block],
                 block
         );
+    }
+});
+
+ServerEvents.tags("block", event => {
+    for (let block in simple_hammer_possibilities){
+        event.add("modpack:mineable/hammer", block);
+    }
+    for (let block in hammer_possibilities){
+        event.add("modpack:mineable/hammer", block);
     }
 });
 
