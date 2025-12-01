@@ -1,3 +1,4 @@
+let $LootItem  = Java.loadClass("net.minecraft.world.level.storage.loot.entries.LootItem");
 let $EquipmentSlot  = Java.loadClass("net.minecraft.world.entity.EquipmentSlot");
 let $InteractionHand  = Java.loadClass("net.minecraft.world.InteractionHand");
 /**
@@ -14,6 +15,33 @@ let hammer_possibilities = {
 ServerEvents.tags("block", event => {
     for (let block in hammer_possibilities){
         event.add("modpack:mineable/hammer", block);
+    }
+    event.removeAllTagsFrom("energizedpower:wooden_hammer");
+});
+
+LootJS.lootTables(event => {
+    for (let block in hammer_possibilities){
+        event.create(`crush_${$ResourceLocation.parse(block).path}_with_hammer`).createPool(pool => {
+            pool.addEntry(block);
+            pool.addEntry('immersiveengineering:warning_sign_arrow_right');
+            pool.addEntry(hammer_possibilities[block]);
+        });
+    }
+});
+
+
+
+ServerEvents.recipes(event => {
+    event.remove("energizedpower:crafting/wooden_hammer");
+
+    for (let block in hammer_possibilities){
+        let result_item;
+        Java.cast<$LootItem>($LootItem, hammer_possibilities[block].vanillaEntry).createItemStack((item) => {
+            result_item = item;
+        }, null);
+        event.shapeless(result_item, [
+            "energizedpower:wooden_hammer", block
+        ]);
     }
 });
 

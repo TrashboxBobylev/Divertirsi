@@ -1,4 +1,7 @@
 {
+    "item.energizedpower.wooden_hammer": "Abstract Hammer",
+    "item.energizedpower.abstract_hammer": "Only serves as demonstration for breaking blocks with hammer, because JEI is mean sometimes",
+
     "modpack.unlocks_root": "Starter Chest unlocks",
     "modpack.unlocks_root_desc": "Unlock things to be added into spaceship's restock chest",
     "modpack.unlocked_starter_item": "This item is now permanently in your spaceship chest!",
