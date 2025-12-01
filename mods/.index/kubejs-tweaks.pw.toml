@@ -1,0 +1,16 @@
+filename = 'kubejstweaks-1.0.4.jar'
+name = 'KubeJS Tweaks'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'd80ad13545e8027b5250c0fd293a1c099bcb50d5'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7131983
+project-id = 1306367
