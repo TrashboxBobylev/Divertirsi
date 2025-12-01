@@ -43,3 +43,9 @@ for item, data in hammer_values {
     item.definition.addAttributeModifier(<attribute:minecraft:generic.attack_speed>, AttributeModifier.create(<resource:minecraft:base_attack_speed>, -(4 - data.attack_speed), <constant:minecraft:attribute/operation:add_value>), <constant:minecraft:equipmentslot/group:mainhand>);
     item.definition.addAttributeModifier(<attribute:minecraft:generic.attack_damage>, AttributeModifier.create(<resource:minecraft:base_attack_damage>, data.attack_damage - 1, <constant:minecraft:attribute/operation:add_value>), <constant:minecraft:equipmentslot/group:mainhand>);
 }
+
+<tag:item:minecraft:enchantable/mining>.add(<tag:item:c:tools/hammers>);
+<tag:item:minecraft:enchantable/mining_loot>.add(<tag:item:c:tools/hammers>);
+<tag:item:minecraft:enchantable/durability>.add(<tag:item:c:tools/hammers>);
+<tag:item:minecraft:enchantable/sharp_weapon>.add(<tag:item:c:tools/hammers>);
+<tag:item:minecraft:enchantable/vanishing>.add(<tag:item:c:tools/hammers>);

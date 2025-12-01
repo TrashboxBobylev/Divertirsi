@@ -50,11 +50,11 @@ ServerEvents.recipes(event => {
 
     hammer(event, Item.of("kubejs:steel_hammer"), "immersiveengineering:stick_treated");
 });
-a
+
 EntityEvents.afterHurt(event => {
     let tool = event.source.getWeaponItem();
     // let tool = event.entity.getItemInHand($InteractionHand.MAIN_HAND);
-    if (tool.hasTag("c:tools/hammers")){
+    if (tool != null && tool.hasTag("c:tools/hammers")){
         tool.hurtAndBreak(2, event.entity, $EquipmentSlot.MAINHAND);
     }
 })
