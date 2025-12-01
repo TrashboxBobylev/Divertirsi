@@ -27,3 +27,24 @@ LootJS.modifiers(event => {
         );
     }
 });
+
+ServerEvents.recipes(event => {
+    /**
+     * @param {$RecipesKubeEvent_} event
+     * @param {$ItemStack} hammer
+     * @param {$ItemStack_} stick
+     */
+    function hammer(event, hammer, stick){
+        let material = hammer.getItem().getTier().repairIngredient;
+        event.shaped(hammer, [
+            " m ",
+            " sm",
+            "s  "
+        ], {
+            m: material,
+            s: stick
+        });
+    }
+
+    hammer(event, Item.of("kubejs:steel_hammer"), "immersiveengineering:stick_treated");
+});
