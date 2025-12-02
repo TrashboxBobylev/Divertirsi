@@ -34,7 +34,9 @@ let hammer_possibilities = {
     "immersiveengineering:ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "immersiveengineering:deepslate_ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
     "oritech:deepslate_platinum_ore": LootEntry.of("oritech:platinum_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1])
+    "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1]),
+    "minecraft:amethyst_block": LootEntry.of("minecraft:amethyst_shard").setCount([2, 3]),
+    "minecraft:dripstone_block": LootEntry.of("minecraft:pointed_dripstone").setCount([2, 3]),
 };
 
 ServerEvents.tags("block", event => {
