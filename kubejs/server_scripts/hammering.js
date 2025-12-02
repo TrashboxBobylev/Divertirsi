@@ -37,6 +37,9 @@ let hammer_possibilities = {
     "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1]),
     "minecraft:amethyst_block": LootEntry.of("minecraft:amethyst_shard").setCount([2, 3]),
     "minecraft:dripstone_block": LootEntry.of("minecraft:pointed_dripstone").setCount([2, 3]),
+    "actuallyadditions:black_quartz_ore": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+    "kubejs:deepslate_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+    "kubejs:crystal_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount([3, 8]).applyEnchantmentBonus("minecraft:fortune", [1, 2]),
 };
 
 ServerEvents.tags("block", event => {
