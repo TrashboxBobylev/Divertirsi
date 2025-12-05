@@ -1,7 +1,9 @@
 global.nukelist = [ // List of things to be disabled and hidden from the game. You can nuke Items, Blocks, Fluids, and Entities, although the last one won't have much of an effect (it can do stuff like making cows unmilkable though, but won't disable spawning or spawn egg item)
     /minecraft:wooden_.*/,
     "industrialforegoing:block_breaker",
-    "industrialforegoing:block_placer"
+    "industrialforegoing:block_placer",
+    "energizedpower:item_conveyor_belt",
+    /energizedpower:item_conveyor_belt.*/
 // I like to separate the different things by registry type, so below could be the fluid section
 
 // I also like to sort them in alphabetical order, there's a VSCode addon for that

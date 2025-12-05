@@ -13,6 +13,30 @@ craftingTable.addShaped("ep_frame_1", <item:energizedpower:basic_machine_frame>,
     [<tag:item:c:ingots/copper>, <tag:item:c:silicon>, <tag:item:c:ingots/copper>]
 ]);
 
+craftingTable.remove(<item:energizedpower:fast_item_conveyor_belt>);
+var belt_material = <item:minecraft:dried_kelp> | <tag:item:c:leathers>;
+craftingTable.addShaped("ep_belt", <item:energizedpower:fast_item_conveyor_belt>*12, [
+    [belt_material, belt_material, belt_material],
+    [<tag:item:c:plates/iron>, <tag:item:c:dusts/redstone>, <tag:item:c:plates/iron>]
+]);
+
+craftingTable.remove(<item:energizedpower:fast_item_conveyor_belt_loader>);
+craftingTable.addShaped("ep_belt_loader", <item:energizedpower:fast_item_conveyor_belt_loader> * 3, [
+    [<tag:item:chipped:bricks>, <tag:item:c:silicon>, <tag:item:chipped:bricks>],
+    [<tag:item:c:silicon>, <item:minecraft:hopper>, <tag:item:c:silicon>],
+    [<tag:item:chipped:bricks>, <tag:item:c:silicon>, <tag:item:chipped:bricks>]
+]);
+
+for item in [
+    <item:energizedpower:fast_item_conveyor_belt_sorter>,
+    <item:energizedpower:fast_item_conveyor_belt_switch>,
+    <item:energizedpower:fast_item_conveyor_belt_splitter>,
+    <item:energizedpower:fast_item_conveyor_belt_merger>
+    ] {
+        craftingTable.remove(item);
+        stoneCutter.addRecipe(item.registryName.path + "_stonecutter", item, <item:energizedpower:fast_item_conveyor_belt_loader>);
+}
+
 // make hammers actual tools
 
 public class hammer_data {
