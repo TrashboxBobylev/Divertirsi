@@ -49,7 +49,8 @@ LootJS.lootTables(event => {
         "minecraft:dripstone_block": LootEntry.of("minecraft:pointed_dripstone").setCount([2, 3]),
         "actuallyadditions:black_quartz_ore": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
         "kubejs:deepslate_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-        "kubejs:crystal_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount([3, 8]).applyEnchantmentBonus("minecraft:fortune", [1, 2])
+        "kubejs:crystal_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount([3, 8]).applyEnchantmentBonus("minecraft:fortune", [1, 2]),
+        "minecraft:prismarine": LootEntry.of("minecraft:prismarine_shard").setCount([0, 1])
     });
     for (let block in hammer_possibilities){
         event.create(`crush_${$ResourceLocation.parse(block).path}_with_hammer`).createPool(pool => {
