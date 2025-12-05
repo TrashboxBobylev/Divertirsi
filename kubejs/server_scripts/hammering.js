@@ -4,43 +4,7 @@ let $InteractionHand  = Java.loadClass("net.minecraft.world.InteractionHand");
 /**
  * @type Object.<string, LootEntry>
  */
-let hammer_possibilities = {
-     "minecraft:stone": LootEntry.of("minecraft:cobblestone"),
-    "minecraft:cobblestone": LootEntry.of("minecraft:gravel"),
-    "minecraft:gravel": LootEntry.of("minecraft:sand"),
-    "minecraft:sandstone": LootEntry.of("minecraft:sand"),
-    "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand"),
-    "minecraft:packed_ice": LootEntry.of("minecraft:ice"),
-    "minecraft:blue_ice": LootEntry.of("minecraft:packed_ice"),
-    "minecraft:bricks": LootEntry.of("minecraft:brick").setCount([2, 4]),
-    "minecraft:coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:deepslate_coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:iron_ore": LootEntry.of("energizedpower:iron_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:deepslate_iron_ore": LootEntry.of("energizedpower:iron_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:copper_ore": LootEntry.of("energizedpower:copper_dust").setCount([2, 5]).applyEnchantmentBonus("minecraft:fortune", [0, 5]),
-    "minecraft:deepslate_copper_ore": LootEntry.of("energizedpower:copper_dust").setCount([2, 5]).applyEnchantmentBonus("minecraft:fortune", [0, 5]),
-    "minecraft:gold_ore": LootEntry.of("energizedpower:gold_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:deepslate_gold_ore": LootEntry.of("energizedpower:gold_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:lapis_ore": LootEntry.of("enderio:powdered_lapis_lazuli").setCount([4, 9]).applyEnchantmentBonus("minecraft:fortune", [0, 9]),
-    "minecraft:deepslate_lapis_ore": LootEntry.of("enderio:powdered_lapis_lazuli").setCount([4, 9]).applyEnchantmentBonus("minecraft:fortune", [0, 9]),
-    "energizedpower:tin_ore": LootEntry.of("energizedpower:tin_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "energizedpower:deepslate_tin_ore": LootEntry.of("energizedpower:tin_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:ore_lead": LootEntry.of("immersiveengineering:dust_lead").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:deepslate_ore_lead": LootEntry.of("immersiveengineering:dust_lead").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:ore_silver": LootEntry.of("immersiveengineering:dust_silver").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:deepslate_ore_silver": LootEntry.of("immersiveengineering:dust_silver").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:ore_nickel": LootEntry.of("immersiveengineering:dust_nickel").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:deepslate_ore_nickel": LootEntry.of("immersiveengineering:dust_nickel").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "immersiveengineering:deepslate_ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "oritech:deepslate_platinum_ore": LootEntry.of("oritech:platinum_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1]),
-    "minecraft:amethyst_block": LootEntry.of("minecraft:amethyst_shard").setCount([2, 3]),
-    "minecraft:dripstone_block": LootEntry.of("minecraft:pointed_dripstone").setCount([2, 3]),
-    "actuallyadditions:black_quartz_ore": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "kubejs:deepslate_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
-    "kubejs:crystal_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount([3, 8]).applyEnchantmentBonus("minecraft:fortune", [1, 2]),
-};
+let hammer_possibilities = {};
 
 ServerEvents.tags("block", event => {
     for (let block in hammer_possibilities){
@@ -50,14 +14,49 @@ ServerEvents.tags("block", event => {
 });
 
 LootJS.lootTables(event => {
+    Object.assign(hammer_possibilities, {
+        "minecraft:stone": LootEntry.of("minecraft:cobblestone"),
+        "minecraft:cobblestone": LootEntry.of("minecraft:gravel"),
+        "minecraft:gravel": LootEntry.of("minecraft:sand"),
+        "minecraft:sandstone": LootEntry.of("minecraft:sand"),
+        "minecraft:red_sandstone": LootEntry.of("minecraft:red_sand"),
+        "minecraft:packed_ice": LootEntry.of("minecraft:ice"),
+        "minecraft:blue_ice": LootEntry.of("minecraft:packed_ice"),
+        "minecraft:bricks": LootEntry.of("minecraft:brick").setCount([2, 4]),
+        "minecraft:coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:deepslate_coal_ore": LootEntry.of("oritech:coal_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:iron_ore": LootEntry.of("energizedpower:iron_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:deepslate_iron_ore": LootEntry.of("energizedpower:iron_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:copper_ore": LootEntry.of("energizedpower:copper_dust").setCount([2, 5]).applyEnchantmentBonus("minecraft:fortune", [0, 5]),
+        "minecraft:deepslate_copper_ore": LootEntry.of("energizedpower:copper_dust").setCount([2, 5]).applyEnchantmentBonus("minecraft:fortune", [0, 5]),
+        "minecraft:gold_ore": LootEntry.of("energizedpower:gold_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:deepslate_gold_ore": LootEntry.of("energizedpower:gold_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:lapis_ore": LootEntry.of("enderio:powdered_lapis_lazuli").setCount([4, 9]).applyEnchantmentBonus("minecraft:fortune", [0, 9]),
+        "minecraft:deepslate_lapis_ore": LootEntry.of("enderio:powdered_lapis_lazuli").setCount([4, 9]).applyEnchantmentBonus("minecraft:fortune", [0, 9]),
+        "energizedpower:tin_ore": LootEntry.of("energizedpower:tin_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "energizedpower:deepslate_tin_ore": LootEntry.of("energizedpower:tin_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:ore_lead": LootEntry.of("immersiveengineering:dust_lead").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:deepslate_ore_lead": LootEntry.of("immersiveengineering:dust_lead").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:ore_silver": LootEntry.of("immersiveengineering:dust_silver").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:deepslate_ore_silver": LootEntry.of("immersiveengineering:dust_silver").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:ore_nickel": LootEntry.of("immersiveengineering:dust_nickel").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:deepslate_ore_nickel": LootEntry.of("immersiveengineering:dust_nickel").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "immersiveengineering:deepslate_ore_uranium": LootEntry.of("immersiveengineering:dust_uranium").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "oritech:deepslate_platinum_ore": LootEntry.of("oritech:platinum_dust").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "minecraft:mangrove_roots": LootEntry.of("minecraft:stick").setCount([0, 1]).applyEnchantmentBonus("minecraft:fortune", [1, 1]),
+        "minecraft:amethyst_block": LootEntry.of("minecraft:amethyst_shard").setCount([2, 3]),
+        "minecraft:dripstone_block": LootEntry.of("minecraft:pointed_dripstone").setCount([2, 3]),
+        "actuallyadditions:black_quartz_ore": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "kubejs:deepslate_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount(1).applyEnchantmentBonus("minecraft:fortune", [0, 1]),
+        "kubejs:crystal_black_quartz": LootEntry.of("jaopca:dusts.black_quartz").setCount([3, 8]).applyEnchantmentBonus("minecraft:fortune", [1, 2])
+    });
     for (let block in hammer_possibilities){
         event.create(`crush_${$ResourceLocation.parse(block).path}_with_hammer`).createPool(pool => {
             pool.addEntry(hammer_possibilities[block]);
         });
     }
 });
-
-
 
 ServerEvents.recipes(event => {
     event.remove("energizedpower:crafting/wooden_hammer");
