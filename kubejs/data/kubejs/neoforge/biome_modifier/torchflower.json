@@ -1,0 +1,6 @@
+{
+    "type": "neoforge:add_features",
+    "biomes": "#modpack:is_torchflower_valid",
+    "features": "modpack:torchflower",
+    "step": "vegetal_decoration"
+  }
