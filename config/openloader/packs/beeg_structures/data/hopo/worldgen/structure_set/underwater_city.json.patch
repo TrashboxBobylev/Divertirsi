@@ -1,0 +1,22 @@
+[
+    {
+        "op": "replace",
+        "path": "/placement/spacing",
+        "value": 32
+    },
+    {
+        "op": "replace",
+        "path": "/placement/separation",
+        "value": 28
+    },
+    {
+        "op": "replace",
+        "path": "/placement/exclusion_zone/other_set",
+        "value": "betteroceanmonuments:ocean_monument"
+    },
+    {
+        "op": "replace",
+        "path": "/placement/exclusion_zone/chunk_count",
+        "value": 8
+    },
+]
