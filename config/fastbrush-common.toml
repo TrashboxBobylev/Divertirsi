@@ -1,0 +1,4 @@
+#The tick rate for brush progress.
+# Default: 4
+# Range: 2 ~ 10
+tickAmount = 4

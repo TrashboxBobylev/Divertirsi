@@ -1,0 +1,16 @@
+filename = 'fastbrush-1.1.0.jar'
+name = 'Accelerated Brush'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '3ad19c916d15ba323114e8c9c2636f1898e58d9b'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7316284
+project-id = 1401865
