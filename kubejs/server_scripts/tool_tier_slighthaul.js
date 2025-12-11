@@ -43,7 +43,7 @@ ServerEvents.recipes(event => {
             if (final_input_item.length == 0){
                 final_input_item = `immersiveengineering:${item_type}_steel`;
             }
-            recipe.replaceInput(/minecraft:diamond_.*/, Item.of(final_input_item));
+            recipe.set("base", Item.of(final_input_item));
         }
     });
 });
