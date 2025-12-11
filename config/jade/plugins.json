@@ -52,12 +52,6 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
-  "railcraft": {
-    "signals": true,
-    "track_component": true,
-    "locomotive": true,
-    "switch_track": true
-  },
   "jade_access": {
     "held_item": true,
     "sign": true,
@@ -125,24 +119,17 @@
     "advanced_auto_table": true,
     "compressor": true
   },
-  "xycraft": {
-    "energy_pipe_debug": true,
-    "tank_component": true,
-    "extractor_component": true
-  },
   "jadeaddons": {
     "equipment_requirement": ""
   },
   "jadeaddons.lootr": {
     "info": true
   },
-  "astages": {
-    "block_component_provider": true
-  },
   "corpse": {
     "corpse": true
   },
   "modular_machinery_reborn": {
-    "machine_component_provider": true
+    "machine_component_provider": true,
+    "hatch_component_provider": true
   }
 }
