@@ -1,0 +1,16 @@
+filename = 'MendedMending-neoforge-1.21.1-1.0.jar'
+name = 'Mended Mending'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1', '1.21.2', '1.21.3', '1.21.4' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '7c4749919f5396168509ee315c18b1886b57d507'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6603157
+project-id = 984274
