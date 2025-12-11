@@ -20,7 +20,7 @@ ServerEvents.tags("block", event => {
     for (let tag of ["c:obsidians", "chipped:obsidian", "chipped:crying_obsidian", "c:storage_blocks/obsidian"]){
         for (let block of event.get(tag).getObjectIds()){
             event.remove("minecraft:needs_diamond_tool", block);
-            event.add("minecraft:needs_netherite_tool", block);
+            event.add("neoforge:needs_netherite_tool", block);
         }
     }
 });
