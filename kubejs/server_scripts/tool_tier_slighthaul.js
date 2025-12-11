@@ -24,3 +24,26 @@ ServerEvents.tags("block", event => {
         }
     }
 });
+
+ServerEvents.recipes(event => {
+    event.replaceInput(/minecraft:diamond_.*/, "minecraft:diamond", "actuallyadditions:diamatine_crystal");
+    event.replaceInput(/minecraft:diamond_.*/, "#c:rods/wooden", "extendedcrafting:basic_component");
+    event.forEachRecipe(/minecraft:netherite_.*_smithing/, recipe => {
+        let matching = /netherite_((?!upgrade_smithing_template$).*)/.exec(recipe.originalRecipeResult.idLocation.path);
+        console.log(matching);
+        if (matching != null){
+            let item_type = matching[1];
+            let final_input_item = "";
+            for (let armor_type of ["helmet", "chestplate", "leggings", "boots"]){
+                if (item_type.includes(armor_type)){
+                    final_input_item = `immersiveengineering:armor_steel_${item_type}`;
+                    break;
+                }
+            }
+            if (final_input_item.length == 0){
+                final_input_item = `immersiveengineering:${item_type}_steel`;
+            }
+            recipe.replaceInput(/minecraft:diamond_.*/, Item.of(final_input_item));
+        }
+    });
+});
