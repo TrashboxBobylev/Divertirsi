@@ -9,7 +9,6 @@ ItemEvents.modification(event => {
                 tier.speed = 20;
                 tier.enchantmentValue = 14;
                 tier.incorrectBlocksForDropsTag = "minecraft:incorrect_for_netherite_tool";
-                tier.repairIngredient = "actuallyadditions:diamatine_crystal"; 
             };
         });
     }
