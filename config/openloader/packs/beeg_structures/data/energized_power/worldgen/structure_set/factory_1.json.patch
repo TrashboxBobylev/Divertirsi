@@ -1,0 +1,7 @@
+[
+    {
+        "op": "add",
+        "path": "/placement/frequency",
+        "value": 0
+    }
+]
