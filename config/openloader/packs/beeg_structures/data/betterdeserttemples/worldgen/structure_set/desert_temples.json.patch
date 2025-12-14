@@ -1,0 +1,17 @@
+[
+    {
+        "op": "replace",
+        "path": "/placement/spacing",
+        "value": 16
+    },
+    {
+        "op": "replace",
+        "path": "/placement/separation",
+        "value": 10
+    },
+    {
+        "op": "replace",
+        "path": "/placement/exclusion_zone/chunk_count",
+        "value": 2
+    }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "user": {
+      "type": "player",
+      "name": "TrashboxBobylev",
+      "uniqueId": "00c79cbd-42b7-4397-92ac-e269113e2d37"
+    },
+    "time": 1765718760723,
+    "type": "Profiler",
+    "data": {
+      "type": "file",
+      "value": "D:\\MultiMC\\instances\\1.21.1(1)\\minecraft\\config\\spark\\profile-2025-12-14_20.26.00.sparkprofile"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "TrashboxBobylev",
+      "uniqueId": "00c79cbd-42b7-4397-92ac-e269113e2d37"
+    },
+    "time": 1765717021973,
+    "type": "Profiler",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/d8LQxlJPPY"
+    }
+  }
+]

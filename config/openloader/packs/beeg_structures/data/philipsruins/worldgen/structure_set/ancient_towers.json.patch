@@ -1,0 +1,12 @@
+[
+    {
+        "op": "replace",
+        "path": "/placement/spacing",
+        "value": 25
+    },
+    {
+        "op": "replace",
+        "path": "/placement/separation",
+        "value": 20
+    }
+]
