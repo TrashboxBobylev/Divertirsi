@@ -10,6 +10,6 @@
 	#Should items of this material have the enchanted glow.
 	hasEffect = false
 	#The model type of the material.
-	modelType = "metallic"
+	modelType = "dust"
 	#The color of this material.
-	color = 1269586
+	color = 0xBF894E

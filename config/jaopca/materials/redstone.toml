@@ -12,4 +12,4 @@
 	#The model type of the material.
 	modelType = "dust"
 	#The color of this material.
-	color = 0x7E0801
+	color = 8259585
