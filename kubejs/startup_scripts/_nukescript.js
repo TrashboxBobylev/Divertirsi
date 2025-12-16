@@ -3,7 +3,8 @@ global.nukelist = [ // List of things to be disabled and hidden from the game. Y
     "industrialforegoing:block_breaker",
     "industrialforegoing:block_placer",
     "energizedpower:item_conveyor_belt",
-    /energizedpower:item_conveyor_belt.*/
+    /energizedpower:item_conveyor_belt.*/,
+    /energizedpower:solar_panel_(\d)/
 // I like to separate the different things by registry type, so below could be the fluid section
 
 // I also like to sort them in alphabetical order, there's a VSCode addon for that

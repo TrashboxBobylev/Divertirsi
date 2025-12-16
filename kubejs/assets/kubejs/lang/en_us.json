@@ -6,6 +6,10 @@
     "modpack.unlocks_root_desc": "Unlock things to be added into spaceship's restock chest",
     "modpack.unlocked_starter_item": "This item is now permanently in your spaceship chest!",
 
+    "modpack.info.solar_decay": "Will be destroyed after %s minutes of continuous generation.",
+    "modpack.info.solar_generation.power": "Produces %s FE/t while it is day time",
+    "modpack.info.solar_generation.life": "Will be destroyed after %s minutes of generation",
+
     "modpack.unlocked_drill_stone": "More Decent Drill unlock",
 
     "item.kubejs.drill.universal": "This drill can mine all blocks that axe, shovel, hoe and pickaxe can",
