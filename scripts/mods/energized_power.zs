@@ -73,3 +73,11 @@ for item, data in hammer_values {
 <tag:item:minecraft:enchantable/durability>.add(<tag:item:c:tools/hammers>);
 <tag:item:minecraft:enchantable/sharp_weapon>.add(<tag:item:c:tools/hammers>);
 <tag:item:minecraft:enchantable/vanishing>.add(<tag:item:c:tools/hammers>);
+
+for transformer_type in ["lv_transformer", "transformer", "hv_transformer", "ehv_transformer"] {
+    for connection_type in ["3_to_3", "n_to_1"]{
+        craftingTable.remove(<item:energizedpower:${transformer_type}_${connection_type}>);
+        stoneCutter.addRecipe(transformer_type + "_" + connection_type + "_stonecutter", <item:energizedpower:${transformer_type}_${connection_type}>, <item:energizedpower:${transformer_type}_1_to_n>);
+        stoneCutter.addRecipe(transformer_type + "_" + connection_type + "_stonecutter_back", <item:energizedpower:${transformer_type}_1_to_n>, <item:energizedpower:${transformer_type}_${connection_type}>);
+    }
+}
