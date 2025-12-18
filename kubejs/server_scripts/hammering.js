@@ -90,12 +90,12 @@ LootJS.modifiers(event => {
 
 ServerEvents.recipes(event => {
     /**
-     * @param {$RecipesKubeEvent_} event
+     * @param {$RecipesKubeEvent$$Type} event
      * @param {$ItemStack} hammer
      * @param {$ItemStack_} stick
      */
-    function hammer(event, hammer, stick){
-        let material = hammer.getItem().getTier().repairIngredient;
+    function hammer(event, hammer, material, stick){
+        event.remove({output: hammer});
         event.shaped(hammer, [
             " m ",
             " sm",
@@ -106,7 +106,8 @@ ServerEvents.recipes(event => {
         });
     }
 
-    hammer(event, Item.of("kubejs:steel_hammer"), "immersiveengineering:stick_treated");
+    hammer(event, Item.of("kubejs:steel_hammer"), "#c:ingots/steel", "immersiveengineering:stick_treated");
+    hammer(event, Item.of("energizedpower:diamond_hammer"), "actuallyadditions:diamatine_crystal", "extendedcrafting:basic_component");
 });
 
 EntityEvents.afterHurt(event => {
