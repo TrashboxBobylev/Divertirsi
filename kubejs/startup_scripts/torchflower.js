@@ -13,6 +13,7 @@ StartupEvents.registry("block", event => {
     event.create("torchflower")
         .soundType("grass")
         .noCollision()
+        .hardness(0)
         .lightLevel(15)
         .box(5.0, 0.0, 5.0, 11.0, 10.0, 11.0)
         .fullBlock(false)
