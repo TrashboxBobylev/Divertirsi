@@ -57,7 +57,7 @@ val hammer_values = {
     <item:energizedpower:stone_hammer>: new hammer_data(<tag:block:minecraft:incorrect_for_stone_tool>, <constant:minecraft:item/tiers:stone>.speed, 10, 0.65f),
     <item:energizedpower:iron_hammer>: new hammer_data(<tag:block:minecraft:incorrect_for_iron_tool>, <constant:minecraft:item/tiers:iron>.speed, 10, 0.75f),
     <item:energizedpower:golden_hammer>: new hammer_data(<tag:block:minecraft:incorrect_for_gold_tool>, <constant:minecraft:item/tiers:gold>.speed, 9, 0.65f),
-    <item:kubejs:steel_hammer>: new hammer_data(<tag:block:immersiveengineering:incorrect_for_steel_tool>, 7.0f, 11, 0.75),
+    <item:kubejs:steel_hammer>: new hammer_data(<tag:block:immersiveengineering:incorrect_for_diamond_tool>, 7.0f, 11, 0.75),
     <item:energizedpower:diamond_hammer>: new hammer_data(<tag:block:minecraft:incorrect_for_netherite_tool>, <constant:minecraft:item/tiers:diamond>.speed, 10, 0.85f),
     <item:energizedpower:netherite_hammer>: new hammer_data(<tag:block:minecraft:incorrect_for_netherite_tool>, <constant:minecraft:item/tiers:netherite>.speed, 11, 0.9f)
 } as hammer_data[IItemStack];

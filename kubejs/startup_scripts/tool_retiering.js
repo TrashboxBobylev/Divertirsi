@@ -23,4 +23,11 @@ ItemEvents.modification(event => {
             };
         });
     }
+    for (let tool of ["immersiveengineering:pickaxe_steel", "immersiveengineering:hoe_steel", "immersiveengineering:axe_steel", "immersiveengineering:shovel_steel", "immersiveengineering:sword_steel"]){
+        event.modify(tool, item => {
+            item.tier = tier => {
+                tier.incorrectBlocksForDropsTag = "minecraft:incorrect_for_diamond_tool";
+            };
+        });
+    }
 });
