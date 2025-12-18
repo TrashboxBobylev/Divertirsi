@@ -8,7 +8,7 @@ global.nukelist = [ // List of things to be disabled and hidden from the game. Y
     /enderio:(.*)_capacitor_bank/,
     "actuallyadditions:battery_box",
     /energizedpower:(.*)battery_box/,
-    /energizedpower:(.*)battery_box_minecart/,
+    /energizedpower:(.*)minecart(.*)/,
     /oritech:(.*)_storage_block/,
     /immersiveengineering:capacitor_(.*)/
 // I like to separate the different things by registry type, so below could be the fluid section
