@@ -14,7 +14,8 @@ global.nukelist = [ // List of things to be disabled and hidden from the game. Y
     "energizedpower:heat_generator",
     "oritech:big_solar_panel_block",
     /enderio:(.*)_photovoltaic_module/,
-    "immersiveengineering:thermoelectric_generator"
+    "immersiveengineering:thermoelectric_generator",
+    "enderio:photovoltaic_composite"
 // I like to separate the different things by registry type, so below could be the fluid section
 
 // I also like to sort them in alphabetical order, there's a VSCode addon for that

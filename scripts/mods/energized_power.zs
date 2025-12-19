@@ -1,10 +1,12 @@
 import crafttweaker.api.entity.attribute.AttributeModifier;
+import crafttweaker.api.data.IData;
+import crafttweaker.api.data.MapData;
 import crafttweaker.api.item.component.Tool;
 import crafttweaker.api.item.component.ToolRule;
 import crafttweaker.api.item.IItemStack;
+import crafttweaker.api.item.ItemDefinition;
 import crafttweaker.api.resource.ResourceLocation;
 import crafttweaker.api.tag.MCTag;
-
 
 craftingTable.remove(<item:energizedpower:basic_machine_frame>);
 craftingTable.addShaped("ep_frame_1", <item:energizedpower:basic_machine_frame>*3, [
@@ -80,4 +82,68 @@ for transformer_type in ["lv_transformer", "transformer", "hv_transformer", "ehv
         stoneCutter.addRecipe(transformer_type + "_" + connection_type + "_stonecutter", <item:energizedpower:${transformer_type}_${connection_type}>, <item:energizedpower:${transformer_type}_1_to_n>);
         stoneCutter.addRecipe(transformer_type + "_" + connection_type + "_stonecutter_back", <item:energizedpower:${transformer_type}_1_to_n>, <item:energizedpower:${transformer_type}_${connection_type}>);
     }
+}
+
+// recipes for reworked solars
+function item_to_ep_item(item as IItemStack) as MapData {
+    return {
+        "item": item.registryName
+    };
+}
+function tag_to_ep_item(item as MCTag) as MapData {
+    return {
+        "tag": item.id.toString()
+    };
+}
+
+<recipetype:energizedpower:alloy_furnace>.addJsonRecipe("solar_panel_smelting", {
+    "type": "energizedpower:alloy_furnace",
+    "inputs": [
+        {
+            "input": tag_to_ep_item(<tag:item:c:dusts/lapis>)
+        },
+        {
+            "input": tag_to_ep_item(<tag:item:c:dusts/coal>)
+        },
+        {
+            "input": tag_to_ep_item(<tag:item:c:silicon>)
+        }
+    ],
+    "output": item_to_ep_item(<item:enderio:photovoltaic_plate>),
+    "ticks": 200
+});
+
+val solar_upgrades = [
+    <item:minecraft:torchflower>,
+    <item:energizedpower:basic_circuit>,
+    <item:oritech:processing_unit>,
+    <item:actuallyadditions:empowered_restonia_crystal>,
+    <item:energizedpower:advanced_circuit>,
+    <item:extendedcrafting:elite_component>
+];
+
+craftingTable.addShaped("solar_1", <item:kubejs:solar_panel_1>, [
+    [<item:enderio:photovoltaic_plate>, <item:enderio:photovoltaic_plate>, <item:enderio:photovoltaic_plate>],
+    [<tag:item:c:plates/tin>, <item:minecraft:torchflower>, <tag:item:c:plates/tin>]
+]);
+
+for i in 1 .. 6 {
+    <recipetype:energizedpower:assembling_machine>.addJsonRecipe("solar_" + (i+1) + "_assemble", {
+        "type": "energizedpower:assembling_machine",
+        "inputs": [
+            {
+                "count": 4,
+                "input": item_to_ep_item(<item:kubejs:solar_panel_${i}>)
+            },
+            {
+                "count": 2,
+                "input": tag_to_ep_item(<tag:item:c:plates/silver>)
+            },
+            {
+                "count": 1,
+                "input": item_to_ep_item(solar_upgrades[i])
+            }
+        ],
+        "output": item_to_ep_item(<item:kubejs:solar_panel_${i+1}>)
+    });
 }
