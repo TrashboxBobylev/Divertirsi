@@ -1,9 +1,9 @@
 function solar_formula_tier(tier){
-    return Math.round(20 * Math.pow(2, tier - 1));
+    return Math.round(20 * Math.pow(5, tier - 1));
 }
 
 function solar_durability(tier){
-    return Math.round((20 * 60 * 20)*Math.pow(1.2, tier - 1));
+    return Math.round((20 * 60 * 20)*Math.pow(0.825, tier - 1));
 }
 
 ServerEvents.generateData("before_mods", event => {
@@ -126,8 +126,9 @@ ServerEvents.recipes(event => {
         recipe.requireFunctionEachTick("solar_decay");
         recipe.info(info => {
             info.texture("minecraft:textures/block/cracked_stone_bricks.png");
-            info.tooltip(Text.translate("modpack.info.solar_decay", Math.round(solar_durability(i) / 20 / 60).toString()));
+            info.tooltip(Text.translate("modpack.info.solar_decay", (solar_durability(i) / 20 / 60).toFixed(1)));
         });
+        console.log(`Total power of solar panel ${1}: ${solar_durability(i)*solar_formula_tier(i)}.`);
     }
 });
 
@@ -150,7 +151,7 @@ CustomMachineryEvents.recipeFunction("solar_decay", event => {
 ItemEvents.modifyTooltips(event => {
     for (let i = 1; i <= global.solar_panel_tiers; i++){
         event.add(`kubejs:solar_panel_${i}`, [Text.translate("modpack.info.solar_generation.power", solar_formula_tier(i).toString())]);
-        event.add(`kubejs:solar_panel_${i}`, [Text.translate("modpack.info.solar_generation.life", Math.round(solar_durability(i) / 20 / 60).toString())]);
+        event.add(`kubejs:solar_panel_${i}`, [Text.translate("modpack.info.solar_generation.life", (solar_durability(i) / 20 / 60).toFixed(1))]);
     }
 });
 
